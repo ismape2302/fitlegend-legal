@@ -980,6 +980,20 @@
   }
   window.addEventListener('resize', fixShowcase);
   fixShowcase();
+
+  // ── CENTER PHONE STRIP ON MOBILE ──
+  function centerPhoneStrip() {
+    if (window.innerWidth <= 768) {
+      const strip = document.querySelector('.phones-strip');
+      const center = document.querySelector('.phone-wrap.center');
+      if (strip && center) {
+        const scrollLeft = center.offsetLeft - (strip.clientWidth / 2) + (center.offsetWidth / 2);
+        strip.scrollLeft = scrollLeft;
+      }
+    }
+  }
+  window.addEventListener('load', centerPhoneStrip);
+  window.addEventListener('resize', centerPhoneStrip);
 </script>
 </body>
 </html>
