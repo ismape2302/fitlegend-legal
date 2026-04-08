@@ -13,139 +13,584 @@
       --card: #0c1f1f;
       --card2: #0f2525;
       --accent: #00F5A0;
+      --accent2: #00c97e;
       --accent-glow: rgba(0,245,160,0.18);
       --accent-glow2: rgba(0,245,160,0.06);
       --gold: #FFD700;
+      --fire: #ff6b35;
       --text: #f0faf5;
       --muted: #6b9e8a;
       --border: rgba(0,245,160,0.12);
     }
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     html { scroll-behavior: smooth; }
-    body { background: var(--bg); color: var(--text); font-family: 'Outfit', sans-serif; overflow-x: hidden; }
- 
-    #particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
- 
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Outfit', sans-serif;
+      overflow-x: hidden;
+      cursor: default;
+    }
+
+    /* ── PARTICLES CANVAS ── */
+    #particles {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── NAV ── */
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       padding: 1rem 2.5rem;
-      background: rgba(5,15,15,0.75); backdrop-filter: blur(18px);
+      background: rgba(5,15,15,0.7);
+      backdrop-filter: blur(18px);
       border-bottom: 1px solid var(--border);
     }
-    .nav-logo { display: flex; align-items: center; gap: .6rem; font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: .08em; color: var(--accent); text-decoration: none; }
+    .nav-logo {
+      display: flex; align-items: center; gap: .6rem;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: .08em;
+      color: var(--accent);
+      text-decoration: none;
+    }
     .nav-logo span { color: var(--text); }
     .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a { color: var(--muted); text-decoration: none; font-size: .9rem; font-weight: 500; transition: color .25s; }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .9rem;
+      font-weight: 500;
+      letter-spacing: .04em;
+      transition: color .25s;
+    }
     .nav-links a:hover { color: var(--accent); }
-    .nav-cta { background: var(--accent); color: #050f0f; font-weight: 700; font-size: .88rem; padding: .5rem 1.3rem; border-radius: 100px; text-decoration: none; transition: transform .2s, box-shadow .2s; }
-    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 0 20px var(--accent-glow); }
- 
+    .nav-cta {
+      background: var(--accent);
+      color: #050f0f;
+      font-weight: 700;
+      font-size: .88rem;
+      padding: .5rem 1.3rem;
+      border-radius: 100px;
+      text-decoration: none;
+      letter-spacing: .04em;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .nav-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 20px var(--accent-glow);
+    }
+
+    /* ── SECTIONS ── */
     section { position: relative; z-index: 1; }
- 
-    .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 7rem 1.5rem 4rem; }
-    .hero-badge { display: inline-flex; align-items: center; gap: .4rem; background: rgba(0,245,160,.1); border: 1px solid rgba(0,245,160,.3); border-radius: 100px; padding: .35rem 1rem; font-size: .78rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.8rem; animation: fadeUp .8s ease both; }
-    .hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3.5rem, 10vw, 8rem); line-height: .95; letter-spacing: .04em; animation: fadeUp .8s .1s ease both; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 7rem 1.5rem 5rem;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      background: rgba(0,245,160,.1);
+      border: 1px solid rgba(0,245,160,.3);
+      border-radius: 100px;
+      padding: .35rem 1rem;
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.8rem;
+      animation: fadeUp .8s ease both;
+    }
+    .hero-badge::before { content: '⚡'; }
+    .hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3.5rem, 10vw, 8rem);
+      line-height: .95;
+      letter-spacing: .04em;
+      animation: fadeUp .8s .1s ease both;
+    }
     .hero h1 .accent { color: var(--accent); }
     .hero h1 .dim { color: var(--muted); }
-    .hero-sub { max-width: 520px; color: var(--muted); font-size: 1.1rem; line-height: 1.6; margin-top: 1.2rem; animation: fadeUp .8s .2s ease both; }
-    .hero-actions { display: flex; gap: 1rem; margin-top: 2.2rem; flex-wrap: wrap; justify-content: center; animation: fadeUp .8s .3s ease both; }
-    .btn-primary { background: var(--accent); color: #050f0f; font-weight: 700; font-size: 1rem; padding: .85rem 2rem; border-radius: 100px; text-decoration: none; display: flex; align-items: center; gap: .5rem; transition: transform .2s, box-shadow .2s; }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 32px rgba(0,245,160,.35); }
-    .btn-ghost { border: 1px solid var(--border); color: var(--text); font-weight: 500; font-size: 1rem; padding: .85rem 2rem; border-radius: 100px; text-decoration: none; transition: border-color .2s, background .2s; }
-    .btn-ghost:hover { border-color: var(--accent); background: var(--accent-glow2); }
- 
-    .phones-strip { padding: 1rem 0 5rem; overflow: hidden; position: relative; z-index: 1; animation: fadeUp .8s .5s ease both; }
-    .phones-track { display: flex; gap: 1.5rem; justify-content: center; align-items: flex-end; padding: 0 2rem; }
-    .phone-wrap { flex-shrink: 0; position: relative; transition: transform .4s cubic-bezier(.22,.68,0,1.2); }
+    .hero-sub {
+      max-width: 520px;
+      color: var(--muted);
+      font-size: 1.1rem;
+      font-weight: 400;
+      line-height: 1.6;
+      margin-top: 1.2rem;
+      animation: fadeUp .8s .2s ease both;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2.2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      animation: fadeUp .8s .3s ease both;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #050f0f;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: .85rem 2rem;
+      border-radius: 100px;
+      text-decoration: none;
+      display: flex; align-items: center; gap: .5rem;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 32px rgba(0,245,160,.35);
+    }
+    .btn-ghost {
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-weight: 500;
+      font-size: 1rem;
+      padding: .85rem 2rem;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: border-color .2s, background .2s;
+      backdrop-filter: blur(8px);
+    }
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      background: var(--accent-glow2);
+    }
+
+    /* ── PHONE MOCKUPS STRIP ── */
+    .phones-strip {
+      padding: 1rem 0 5rem;
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+      animation: fadeUp .8s .5s ease both;
+    }
+    .phones-track {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      align-items: flex-end;
+      flex-wrap: nowrap;
+      padding: 0 2rem;
+    }
+    .phone-wrap {
+      flex-shrink: 0;
+      position: relative;
+      transition: transform .4s cubic-bezier(.22,.68,0,1.2);
+    }
     .phone-wrap:hover { transform: translateY(-12px) scale(1.03); }
-    .phone-wrap.center { transform: scale(1.08); z-index: 2; }
+    .phone-wrap.center {
+      transform: scale(1.08);
+      z-index: 2;
+    }
     .phone-wrap.center:hover { transform: scale(1.11) translateY(-12px); }
-    .phone-wrap.side { opacity: .7; transform: scale(0.93) translateY(20px); }
+    .phone-wrap.side { opacity: .75; transform: scale(0.93) translateY(20px); }
     .phone-wrap.side:hover { opacity: 1; transform: scale(0.96) translateY(8px); }
-    .phone-frame { width: 180px; height: 380px; border-radius: 28px; border: 2px solid rgba(0,245,160,0.2); overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,.6); background: #0a1a1a; position: relative; }
-    .phone-frame img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
-    .phone-glow { position: absolute; inset: -1px; border-radius: 29px; background: linear-gradient(135deg, rgba(0,245,160,.12), transparent 60%); pointer-events: none; }
-    .phone-label { position: absolute; bottom: -2rem; left: 50%; transform: translateX(-50%); font-size: .7rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
- 
-    .stats-bar { padding: 3rem 2rem; background: linear-gradient(135deg, var(--card), var(--card2)); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); position: relative; z-index: 1; }
-    .stats-inner { max-width: 900px; margin: 0 auto; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 2rem; }
+    .phone-frame {
+      width: 180px;
+      height: 380px;
+      border-radius: 28px;
+      border: 2px solid rgba(0,245,160,0.25);
+      overflow: hidden;
+      box-shadow:
+        0 30px 60px rgba(0,0,0,.6),
+        0 0 0 1px rgba(0,245,160,.05),
+        inset 0 0 0 1px rgba(255,255,255,.04);
+      background: #0a1a1a;
+      position: relative;
+    }
+    .phone-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+    .phone-glow {
+      position: absolute;
+      inset: -1px;
+      border-radius: 29px;
+      background: linear-gradient(135deg, rgba(0,245,160,.15), transparent 60%);
+      pointer-events: none;
+    }
+    .phone-label {
+      position: absolute;
+      bottom: -2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      padding: 3rem 2rem;
+      background: linear-gradient(135deg, var(--card) 0%, var(--card2) 100%);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .stats-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
     .stat-item { text-align: center; }
-    .stat-number { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; letter-spacing: .04em; color: var(--accent); line-height: 1; }
-    .stat-label { font-size: .8rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-top: .3rem; }
- 
-    .features { padding: 6rem 2rem; max-width: 1100px; margin: 0 auto; }
-    .section-label { font-size: .75rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--accent); margin-bottom: .8rem; }
-    .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5vw, 4rem); letter-spacing: .04em; line-height: 1; margin-bottom: 3rem; }
-    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
-    .feature-card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 2rem; position: relative; overflow: hidden; transition: transform .3s, border-color .3s, box-shadow .3s; }
-    .feature-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0; transition: opacity .3s; }
-    .feature-card:hover { transform: translateY(-4px); border-color: rgba(0,245,160,.3); box-shadow: 0 20px 40px rgba(0,0,0,.4); }
+    .stat-number {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3rem;
+      letter-spacing: .04em;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: .3rem;
+    }
+
+    /* ── FEATURES ── */
+    .features {
+      padding: 6rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: .8rem;
+    }
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      letter-spacing: .04em;
+      line-height: 1;
+      margin-bottom: 3.5rem;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .feature-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform .3s, border-color .3s, box-shadow .3s;
+    }
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: 0;
+      transition: opacity .3s;
+    }
+    .feature-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(0,245,160,.3);
+      box-shadow: 0 20px 40px rgba(0,0,0,.4), 0 0 40px var(--accent-glow2);
+    }
     .feature-card:hover::before { opacity: 1; }
-    .feature-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
-    .feature-card h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: .06em; color: var(--accent); margin-bottom: .5rem; }
-    .feature-card p { color: var(--muted); font-size: .9rem; line-height: 1.6; }
-    .feature-card.featured { border-color: rgba(0,245,160,.25); background: linear-gradient(135deg, var(--card2), var(--card)); }
- 
-    .screenshots { padding: 6rem 2rem; background: linear-gradient(180deg, transparent, var(--bg2) 20%, var(--bg2) 80%, transparent); overflow: hidden; }
-    .screenshot-showcase { display: flex; gap: 3rem; align-items: center; margin-top: 3rem; max-width: 1100px; margin-left: auto; margin-right: auto; }
-    .screenshot-showcase.reverse { flex-direction: row-reverse; }
-    .showcase-text { flex: 1; min-width: 240px; }
-    .showcase-text h3 { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; letter-spacing: .05em; color: var(--accent); margin-bottom: .6rem; }
-    .showcase-text p { color: var(--muted); line-height: 1.7; font-size: .95rem; }
-    .showcase-phones { display: flex; gap: 1.2rem; align-items: flex-end; flex: 1.5; }
-    .showcase-phone { flex: 1; border-radius: 24px; border: 1.5px solid rgba(0,245,160,.2); overflow: hidden; box-shadow: 0 24px 50px rgba(0,0,0,.5); background: #0a1a1a; transition: transform .3s; }
+    .feature-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .feature-card h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: .06em;
+      color: var(--accent);
+      margin-bottom: .5rem;
+    }
+    .feature-card p {
+      color: var(--muted);
+      font-size: .9rem;
+      line-height: 1.6;
+    }
+    .feature-card.featured {
+      border-color: rgba(0,245,160,.25);
+      background: linear-gradient(135deg, var(--card2), var(--card));
+    }
+
+    /* ── SCREENSHOTS SECTION ── */
+    .screenshots {
+      padding: 6rem 2rem;
+      background: linear-gradient(180deg, transparent, var(--bg2) 30%, var(--bg2) 70%, transparent);
+      overflow: hidden;
+    }
+    .screenshots .section-label, .screenshots .section-title {
+      text-align: center;
+    }
+    .screenshot-showcase {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      margin-top: 3rem;
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .showcase-text { flex: 1; min-width: 260px; }
+    .showcase-text h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.5rem;
+      letter-spacing: .05em;
+      color: var(--accent);
+      margin-bottom: .6rem;
+    }
+    .showcase-text p {
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: .95rem;
+    }
+    .showcase-phones {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-end;
+      flex: 1.5;
+    }
+    .showcase-phone {
+      flex: 1;
+      border-radius: 24px;
+      border: 1.5px solid rgba(0,245,160,.2);
+      overflow: hidden;
+      box-shadow: 0 24px 50px rgba(0,0,0,.5);
+      background: #0a1a1a;
+      transition: transform .3s;
+    }
     .showcase-phone:hover { transform: translateY(-8px); }
-    .showcase-phone img { width: 100%; height: auto; display: block; }
+    .showcase-phone img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
     .showcase-phone.tall { transform: translateY(-20px); }
     .showcase-phone.tall:hover { transform: translateY(-28px); }
- 
-    .testimonials { padding: 6rem 2rem; max-width: 1100px; margin: 0 auto; }
-    .testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
-    .testi-card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 1.8rem; transition: transform .3s, border-color .3s; }
-    .testi-card:hover { transform: translateY(-4px); border-color: rgba(0,245,160,.25); }
-    .testi-stars { color: var(--gold); font-size: .9rem; margin-bottom: .8rem; }
-    .testi-text { color: var(--text); font-size: .95rem; line-height: 1.6; margin-bottom: 1.2rem; font-style: italic; }
-    .testi-author { display: flex; align-items: center; gap: .8rem; }
-    .testi-avatar { width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), #007a50); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: .9rem; color: #050f0f; flex-shrink: 0; }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials {
+      padding: 6rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .testi-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 1.8rem;
+      transition: transform .3s, border-color .3s;
+      position: relative;
+    }
+    .testi-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(0,245,160,.25);
+    }
+    .testi-stars {
+      color: var(--gold);
+      font-size: .9rem;
+      margin-bottom: .8rem;
+      letter-spacing: .1em;
+    }
+    .testi-text {
+      color: var(--text);
+      font-size: .95rem;
+      line-height: 1.6;
+      margin-bottom: 1.2rem;
+      font-style: italic;
+    }
+    .testi-text::before { content: '\201C'; color: var(--accent); font-size: 1.5em; line-height: 0; vertical-align: -.3em; }
+    .testi-author {
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+    }
+    .testi-avatar {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), #007a50);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: .9rem;
+      color: #050f0f;
+      flex-shrink: 0;
+    }
     .testi-name { font-weight: 600; font-size: .9rem; }
     .testi-meta { color: var(--muted); font-size: .78rem; }
- 
-    .download-cta { padding: 7rem 2rem; text-align: center; position: relative; overflow: hidden; z-index: 1; }
-    .download-cta::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 600px; height: 600px; background: radial-gradient(circle, rgba(0,245,160,.07) 0%, transparent 70%); pointer-events: none; }
-    .download-cta h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 7vw, 6rem); letter-spacing: .04em; line-height: 1; margin-bottom: 1rem; }
-    .download-cta p { color: var(--muted); font-size: 1.1rem; max-width: 440px; margin: 0 auto 2.5rem; line-height: 1.6; }
-    .store-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-    .store-btn { display: flex; align-items: center; gap: .8rem; padding: .9rem 1.8rem; border-radius: 14px; text-decoration: none; font-weight: 600; font-size: .95rem; transition: transform .2s, box-shadow .2s; }
-    .store-btn.google { background: var(--accent); color: #050f0f; }
-    .store-btn.google:hover { transform: translateY(-2px); box-shadow: 0 0 30px rgba(0,245,160,.35); }
-    .store-btn.apple { background: transparent; border: 1px solid var(--border); color: var(--muted); cursor: not-allowed; }
-    .soon { font-size: .7rem; background: var(--card); padding: .1rem .4rem; border-radius: 4px; }
- 
-    footer { border-top: 1px solid var(--border); padding: 2rem 2.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; color: var(--muted); font-size: .82rem; position: relative; z-index: 1; }
+
+    /* ── DOWNLOAD CTA ── */
+    .download-cta {
+      padding: 7rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .download-cta::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(0,245,160,.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .download-cta h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 7vw, 6rem);
+      letter-spacing: .04em;
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+    .download-cta p {
+      color: var(--muted);
+      font-size: 1.1rem;
+      max-width: 440px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.6;
+    }
+    .store-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .store-btn {
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+      padding: .9rem 1.8rem;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: .95rem;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .store-btn.google {
+      background: var(--accent);
+      color: #050f0f;
+    }
+    .store-btn.google:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 30px rgba(0,245,160,.35);
+    }
+    .store-btn.apple {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      cursor: not-allowed;
+    }
+    .store-btn.apple span.soon {
+      font-size: .7rem;
+      background: var(--card);
+      padding: .1rem .4rem;
+      border-radius: 4px;
+      color: var(--muted);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      color: var(--muted);
+      font-size: .82rem;
+    }
     .footer-links { display: flex; gap: 1.5rem; }
     .footer-links a { color: var(--muted); text-decoration: none; transition: color .2s; }
     .footer-links a:hover { color: var(--accent); }
- 
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-    .reveal { opacity: 0; transform: translateY(40px); transition: opacity .7s ease, transform .7s ease; }
-    .reveal.visible { opacity: 1; transform: none; }
- 
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-8px); }
+    }
+    @keyframes countUp {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       nav { padding: 1rem 1.5rem; }
       .nav-links { display: none; }
       .phones-track { gap: .8rem; }
       .phone-frame { width: 130px; height: 275px; }
-      .screenshot-showcase, .screenshot-showcase.reverse { flex-direction: column; }
+      .screenshot-showcase { flex-direction: column; }
       .showcase-phones { justify-content: center; }
       footer { flex-direction: column; text-align: center; }
     }
   </style>
 </head>
 <body>
- 
+
 <canvas id="particles"></canvas>
- 
+
+<!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">⚔️ Fit<span>Legend</span></a>
   <ul class="nav-links">
@@ -155,9 +600,10 @@
   </ul>
   <a href="https://play.google.com/store/apps/details?id=com.impapps.fitlegend" class="nav-cta" target="_blank">▶ Descargar</a>
 </nav>
- 
+
+<!-- HERO -->
 <section class="hero">
-  <div class="hero-badge">⚡ Disponible en Google Play</div>
+  <div class="hero-badge">Disponible en Google Play</div>
   <h1>
     <span class="dim">CONVIÉRTETE EN</span><br>
     UNA <span class="accent">LEYENDA</span><br>
@@ -169,84 +615,153 @@
     <a href="#screenshots" class="btn-ghost">Ver la app →</a>
   </div>
 </section>
- 
+
+<!-- PHONE STRIP -->
 <div class="phones-strip">
   <div class="phones-track">
     <div class="phone-wrap side">
-      <div class="phone-frame"><img src="imgs/coach.jpg" alt="FitCoach IA" loading="lazy" /><div class="phone-glow"></div></div>
+      <div class="phone-frame">
+        <img src="imgs/coach_blanco.jpg">
+        <div class="phone-glow"></div>
+      </div>
       <span class="phone-label">IA Coach</span>
     </div>
     <div class="phone-wrap">
-      <div class="phone-frame"><img src="imgs/rutinas.jpg" alt="Rutinas" loading="lazy" /><div class="phone-glow"></div></div>
+      <div class="phone-frame">
+        <img src="imgs/rutinas_blanco.jpg">
+        <div class="phone-glow"></div>
+      </div>
       <span class="phone-label">Rutinas</span>
     </div>
     <div class="phone-wrap center">
-      <div class="phone-frame"><img src="imgs/inicio.jpg" alt="Inicio" loading="lazy" /><div class="phone-glow"></div></div>
+      <div class="phone-frame">
+        <img src="imgs/inicio_negro.jpg">
+        <div class="phone-glow"></div>
+      </div>
       <span class="phone-label">Inicio</span>
     </div>
     <div class="phone-wrap">
-      <div class="phone-frame"><img src="imgs/ranking.jpg" alt="Ranking" loading="lazy" /><div class="phone-glow"></div></div>
+      <div class="phone-frame">
+        <img src="imgs/ranking_blanco.jpg">
+        <div class="phone-glow"></div>
+      </div>
       <span class="phone-label">Ranking</span>
     </div>
     <div class="phone-wrap side">
-      <div class="phone-frame"><img src="imgs/perfil.jpg" alt="Perfil" loading="lazy" /><div class="phone-glow"></div></div>
+      <div class="phone-frame">
+        <img src="imgs/perfil_blanco.jpg">        
+        <div class="phone-glow"></div>
+      </div>
       <span class="phone-label">Perfil</span>
     </div>
   </div>
 </div>
- 
+
+<!-- STATS BAR -->
 <div class="stats-bar reveal">
   <div class="stats-inner">
-    <div class="stat-item"><div class="stat-number">10+</div><div class="stat-label">Usuarios activos</div></div>
-    <div class="stat-item"><div class="stat-number">70+</div><div class="stat-label">Entrenamientos</div></div>
-    <div class="stat-item"><div class="stat-number">85K+</div><div class="stat-label">Pasos contados</div></div>
-    <div class="stat-item"><div class="stat-number">26</div><div class="stat-label">Idiomas</div></div>
-    <div class="stat-item"><div class="stat-number">4.8★</div><div class="stat-label">Valoración</div></div>
+    <div class="stat-item">
+      <div class="stat-number" data-target="10">10+</div>
+      <div class="stat-label">Usuarios activos</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">70+</div>
+      <div class="stat-label">Entrenamientos registrados</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">85K+</div>
+      <div class="stat-label">Pasos contados</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">26</div>
+      <div class="stat-label">Idiomas disponibles</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">4.8★</div>
+      <div class="stat-label">Valoración media</div>
+    </div>
   </div>
 </div>
- 
+
+<!-- FEATURES -->
 <section class="features" id="features">
   <div class="reveal">
     <p class="section-label">¿Qué incluye?</p>
     <h2 class="section-title">TODO LO QUE<br>NECESITAS</h2>
   </div>
   <div class="features-grid">
-    <div class="feature-card featured reveal"><span class="feature-icon">⚡</span><h3>Gamificación</h3><p>Sube de nivel, gana XP con cada entrenamiento, desbloquea logros épicos y compite en el ranking global.</p></div>
-    <div class="feature-card reveal"><span class="feature-icon">🤖</span><h3>IA Coach</h3><p>Tu entrenador personal con inteligencia artificial disponible 24/7. Rutinas personalizadas y consejos al instante.</p></div>
-    <div class="feature-card reveal"><span class="feature-icon">👟</span><h3>Contador de pasos</h3><p>Sincronización con Health Connect para seguir tu actividad diaria con objetivos y gráficas detalladas.</p></div>
-    <div class="feature-card reveal"><span class="feature-icon">🏆</span><h3>Ranking</h3><p>Compite semanalmente, mensualmente o en el ranking global. ¿Tienes lo que hace falta para el número 1?</p></div>
-    <div class="feature-card reveal"><span class="feature-icon">💬</span><h3>Social</h3><p>Sigue a otros usuarios, chatea, comparte tus logros y motívate mutuamente. El fitness es mejor en comunidad.</p></div>
-    <div class="feature-card reveal"><span class="feature-icon">🗺️</span><h3>Rutas GPS</h3><p>Registra tus rutas de running, ciclismo y senderismo con Google Maps. Analiza cada recorrido en detalle.</p></div>
+    <div class="feature-card featured reveal">
+      <span class="feature-icon">⚡</span>
+      <h3>Gamificación</h3>
+      <p>Sube de nivel, gana XP con cada entrenamiento, desbloquea logros épicos y compite en el ranking global contra otros usuarios.</p>
+    </div>
+    <div class="feature-card reveal">
+      <span class="feature-icon">🤖</span>
+      <h3>IA Coach</h3>
+      <p>Tu entrenador personal con inteligencia artificial disponible 24/7. Genera rutinas personalizadas y responde cualquier pregunta sobre fitness.</p>
+    </div>
+    <div class="feature-card reveal">
+      <span class="feature-icon">👟</span>
+      <h3>Contador de pasos</h3>
+      <p>Sincronización con Health Connect para seguir tu actividad diaria. Establece objetivos y visualiza tu progreso con gráficas detalladas.</p>
+    </div>
+    <div class="feature-card reveal">
+      <span class="feature-icon">🏆</span>
+      <h3>Ranking</h3>
+      <p>Compite semanalmente, mensualmente o en el ranking global. ¿Tienes lo que hace falta para llegar al número 1?</p>
+    </div>
+    <div class="feature-card reveal">
+      <span class="feature-icon">💬</span>
+      <h3>Social</h3>
+      <p>Sigue a otros usuarios, chatea, comparte tus logros y motívate mutuamente. El fitness es mejor en comunidad.</p>
+    </div>
+    <div class="feature-card reveal">
+      <span class="feature-icon">🗺️</span>
+      <h3>Rutas GPS</h3>
+      <p>Registra tus rutas de running, ciclismo y senderismo con Google Maps. Analiza velocidad, distancia y altitud de cada recorrido.</p>
+    </div>
   </div>
 </section>
- 
+
+<!-- SCREENSHOTS DETAIL -->
 <section class="screenshots" id="screenshots">
-  <div class="reveal" style="text-align:center">
-    <p class="section-label">La app por dentro</p>
-    <h2 class="section-title">DISEÑADA PARA<br>GUERREROS</h2>
+  <div class="reveal">
+    <p class="section-label" style="text-align:center">La app por dentro</p>
+    <h2 class="section-title" style="text-align:center">DISEÑADA PARA<br>GUERREROS</h2>
   </div>
-  <div class="screenshot-showcase reveal">
+
+  <div class="screenshot-showcase reveal" style="margin-top:3rem; flex-direction: row;">
     <div class="showcase-text">
       <h3>Tu dashboard épico</h3>
-      <p>Misiones diarias, XP, racha de días y acceso al Coach IA. Todo en una pantalla diseñada para que no pierdas el foco.</p>
+      <p>Misiones diarias, XP, racha de días, entrenamientos rápidos y acceso al Coach IA. Todo en una pantalla diseñada para que no pierdas el foco.</p>
     </div>
     <div class="showcase-phones">
-      <div class="showcase-phone tall"><img src="imgs/inicio.jpg" alt="Inicio FitLegend" loading="lazy" /></div>
-      <div class="showcase-phone"><img src="imgs/stats.jpg" alt="Estadísticas FitLegend" loading="lazy" /></div>
+      <div class="showcase-phone tall">
+        <img src="imgs/inicio2_blanco.jpg">
+      </div>
+      <div class="showcase-phone">
+        <img src="imgs/entrenamientos_negro.jpg">
+      </div>
     </div>
   </div>
-  <div class="screenshot-showcase reverse reveal" style="margin-top:4rem">
+
+  <div class="screenshot-showcase reveal" style="margin-top:4rem; flex-direction: row-reverse;">
     <div class="showcase-text">
       <h3>Compite y conquista</h3>
-      <p>El ranking en tiempo real te sitúa frente a otros guerreros. Semanal, mensual o global: demuestra quién llega más lejos.</p>
+      <p>El ranking en tiempo real te sitúa frente a otros guerreros del fitness. Semanal, mensual o global: demuestra quién llega más lejos.</p>
     </div>
     <div class="showcase-phones">
-      <div class="showcase-phone"><img src="imgs/ranking.jpg" alt="Ranking FitLegend" loading="lazy" /></div>
-      <div class="showcase-phone tall"><img src="imgs/rutas.jpg" alt="Rutas GPS FitLegend" loading="lazy" /></div>
+      <div class="showcase-phone">
+        <img src="imgs/ranking_negro.jpg">
+      </div>
+      <div class="showcase-phone tall">
+        <img src="imgs/racha_blanco.jpg">
+      </div>
     </div>
   </div>
 </section>
- 
+
+<!-- TESTIMONIALS -->
 <section class="testimonials" id="testimonios">
   <div class="reveal">
     <p class="section-label">Lo que dicen</p>
@@ -256,30 +771,54 @@
     <div class="testi-card reveal">
       <div class="testi-stars">★★★★★</div>
       <p class="testi-text">Me enganché desde el primer día. El sistema de XP y misiones hace que entrenar sea adictivo de buena manera.</p>
-      <div class="testi-author"><div class="testi-avatar">A</div><div><div class="testi-name">Antonio</div><div class="testi-meta">Nivel 3 · 2035 XP</div></div></div>
+      <div class="testi-author">
+        <div class="testi-avatar">A</div>
+        <div>
+          <div class="testi-name">Antonio</div>
+          <div class="testi-meta">Nivel 3 · 2035 XP</div>
+        </div>
+      </div>
     </div>
     <div class="testi-card reveal">
       <div class="testi-stars">★★★★★</div>
       <p class="testi-text">El Coach IA es lo mejor. Le pregunto cualquier cosa sobre fitness y me da respuestas personalizadas al instante.</p>
-      <div class="testi-author"><div class="testi-avatar">E</div><div><div class="testi-name">Espartana</div><div class="testi-meta">Nivel 2 · 965 XP</div></div></div>
+      <div class="testi-author">
+        <div class="testi-avatar">E</div>
+        <div>
+          <div class="testi-name">Espartana</div>
+          <div class="testi-meta">Nivel 2 · 965 XP</div>
+        </div>
+      </div>
     </div>
     <div class="testi-card reveal">
       <div class="testi-stars">★★★★★</div>
       <p class="testi-text">Por fin una app de fitness que no aburre. El ranking me motiva a salir a correr aunque no tenga ganas.</p>
-      <div class="testi-author"><div class="testi-avatar">P</div><div><div class="testi-name">Paloma</div><div class="testi-meta">Nivel 1 · 35 XP</div></div></div>
+      <div class="testi-author">
+        <div class="testi-avatar">P</div>
+        <div>
+          <div class="testi-name">Paloma</div>
+          <div class="testi-meta">Nivel 1 · 35 XP</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
- 
+
+<!-- DOWNLOAD CTA -->
 <section class="download-cta">
   <h2>EMPIEZA TU<br><span style="color:var(--accent)">LEYENDA</span></h2>
   <p>Descarga gratis. Entrena. Sube de nivel. Conviértete en una leyenda.</p>
   <div class="store-buttons">
-    <a href="https://play.google.com/store/apps/details?id=com.impapps.fitlegend" class="store-btn google" target="_blank">▶ Google Play</a>
-    <span class="store-btn apple">🍎 App Store <span class="soon">Próximamente</span></span>
+    <a href="https://play.google.com/store/apps/details?id=com.impapps.fitlegend" class="store-btn google" target="_blank">
+      ▶ Google Play
+    </a>
+    <span class="store-btn apple">
+      🍎 App Store <span class="soon">Próximamente</span>
+    </span>
   </div>
 </section>
- 
+
+<!-- FOOTER -->
 <footer>
   <div>© 2026 ImpApps Studio</div>
   <div class="footer-links">
@@ -288,46 +827,101 @@
     <a href="mailto:isaacmp4747@gmail.com">Contacto</a>
   </div>
 </footer>
- 
+
 <script>
+  // ── PARTICLES ──
   const canvas = document.getElementById('particles');
   const ctx = canvas.getContext('2d');
   let W, H, particles = [];
-  function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
-  window.addEventListener('resize', resize); resize();
- 
+
+  function resize() {
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
   class Particle {
     constructor() { this.reset(); }
     reset() {
-      this.x = Math.random() * W; this.y = Math.random() * H;
-      this.vx = (Math.random() - 0.5) * 0.4; this.vy = (Math.random() - 0.5) * 0.4;
-      this.r = Math.random() * 1.5 + 0.5; this.alpha = Math.random() * 0.45 + 0.1;
+      this.x = Math.random() * W;
+      this.y = Math.random() * H;
+      this.vx = (Math.random() - 0.5) * 0.4;
+      this.vy = (Math.random() - 0.5) * 0.4;
+      this.r = Math.random() * 1.5 + 0.5;
+      this.alpha = Math.random() * 0.5 + 0.1;
       this.color = Math.random() > 0.7 ? '#00F5A0' : '#1a4a3a';
     }
-    update() { this.x += this.vx; this.y += this.vy; if (this.x < 0 || this.x > W || this.y < 0 || this.y > H) this.reset(); }
-    draw() { ctx.beginPath(); ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2); ctx.fillStyle = this.color; ctx.globalAlpha = this.alpha; ctx.fill(); }
+    update() {
+      this.x += this.vx;
+      this.y += this.vy;
+      if (this.x < 0 || this.x > W || this.y < 0 || this.y > H) this.reset();
+    }
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+      ctx.fillStyle = this.color;
+      ctx.globalAlpha = this.alpha;
+      ctx.fill();
+    }
   }
+
   for (let i = 0; i < 120; i++) particles.push(new Particle());
- 
+
+  // Draw connections
+  function drawConnections() {
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const dist = Math.sqrt(dx*dx + dy*dy);
+        if (dist < 100) {
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.strokeStyle = '#00F5A0';
+          ctx.globalAlpha = (1 - dist/100) * 0.06;
+          ctx.lineWidth = 0.5;
+          ctx.stroke();
+        }
+      }
+    }
+  }
+
   function animate() {
     ctx.clearRect(0, 0, W, H);
     particles.forEach(p => { p.update(); p.draw(); });
-    for (let i = 0; i < particles.length; i++) {
-      for (let j = i + 1; j < particles.length; j++) {
-        const dx = particles[i].x - particles[j].x, dy = particles[i].y - particles[j].y;
-        const d = Math.sqrt(dx*dx + dy*dy);
-        if (d < 100) { ctx.beginPath(); ctx.moveTo(particles[i].x, particles[i].y); ctx.lineTo(particles[j].x, particles[j].y); ctx.strokeStyle = '#00F5A0'; ctx.globalAlpha = (1-d/100)*0.06; ctx.lineWidth = 0.5; ctx.stroke(); }
-      }
-    }
+    drawConnections();
     ctx.globalAlpha = 1;
     requestAnimationFrame(animate);
   }
   animate();
- 
+
+  // ── SCROLL REVEAL ──
+  const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach((e, i) => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 80); observer.unobserve(e.target); } });
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        observer.unobserve(e.target);
+      }
+    });
   }, { threshold: 0.1 });
-  document.querySelectorAll('.reveal').forEach(r => observer.observe(r));
+  reveals.forEach(r => observer.observe(r));
+
+  // ── SHOWCASE FLEX DIRECTION RESPONSIVE ──
+  function fixShowcase() {
+    document.querySelectorAll('.screenshot-showcase').forEach(s => {
+      if (window.innerWidth < 768) {
+        s.style.flexDirection = 'column';
+      } else {
+        s.style.flexDirection = s.dataset.dir || s.style.flexDirection;
+      }
+    });
+  }
+  window.addEventListener('resize', fixShowcase);
+  fixShowcase();
 </script>
+
 </body>
 </html>
