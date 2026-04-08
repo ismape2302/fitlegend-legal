@@ -574,12 +574,47 @@
       transform: none;
     }
 
+    /* ── LIGHTBOX ── */
+    .lightbox-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(0,0,0,.88);
+      backdrop-filter: blur(8px);
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+    }
+    .lightbox-overlay.open { display: flex; }
+    .lightbox-overlay img {
+      max-width: 92vw;
+      max-height: 90vh;
+      border-radius: 20px;
+      box-shadow: 0 40px 80px rgba(0,0,0,.8), 0 0 0 1px rgba(0,245,160,.15);
+      object-fit: contain;
+      cursor: default;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 1.2rem; right: 1.5rem;
+      color: var(--muted);
+      font-size: 2rem;
+      cursor: pointer;
+      line-height: 1;
+      transition: color .2s;
+    }
+    .lightbox-close:hover { color: var(--accent); }
+    .phone-frame img, .showcase-phone img { cursor: zoom-in; }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       nav { padding: 1rem 1.5rem; }
       .nav-links { display: none; }
-      .phones-track { gap: .8rem; }
-      .phone-frame { width: 130px; height: 275px; }
+      .phones-strip { overflow-x: auto; overflow-y: visible; -webkit-overflow-scrolling: touch; padding-bottom: 4rem; }
+      .phones-strip::-webkit-scrollbar { display: none; }
+      .phones-track { justify-content: flex-start; padding: 0 1.5rem; min-width: max-content; }
+      .phone-frame { width: 140px; height: 295px; }
       .screenshot-showcase { flex-direction: column; }
       .showcase-phones { justify-content: center; }
       footer { flex-direction: column; text-align: center; }
@@ -818,17 +853,23 @@
   </div>
 </section>
 
+<!-- LIGHTBOX -->
+<div id="lightbox-overlay" class="lightbox-overlay">
+  <span id="lightbox-close" class="lightbox-close">✕</span>
+  <img id="lightbox-img" src="" alt="Screenshot ampliada" />
+</div>
+
 <!-- FOOTER -->
 <footer>
   <div>© 2026 ImpApps Studio</div>
   <div class="footer-links">
     <a href="privacy-policy.html">Política de privacidad</a>
     <a href="delete-account.html">Eliminar cuenta</a>
-    <a href="mailto:isaacmp4747@gmail.com">Contacto</a>
+    <a href="/cdn-cgi/l/email-protection#29405a48484a44591d1e1d1e694e44484045074a4644">Contacto</a>
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // ── PARTICLES ──
   const canvas = document.getElementById('particles');
   const ctx = canvas.getContext('2d');
@@ -897,17 +938,35 @@
   }
   animate();
 
-  // ── SCROLL REVEAL ──
+  // ── SCROLL REVEAL BIDIRECCIONAL ──
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach((e, i) => {
+    entries.forEach((e) => {
       if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.add('visible'), i * 80);
-        observer.unobserve(e.target);
+        e.target.classList.add('visible');
+      } else {
+        e.target.classList.remove('visible');
       }
     });
   }, { threshold: 0.1 });
   reveals.forEach(r => observer.observe(r));
+
+  // ── LIGHTBOX ──
+  const overlay = document.getElementById('lightbox-overlay');
+  const lightboxImg = document.getElementById('lightbox-img');
+
+  document.querySelectorAll('.phone-frame img, .showcase-phone img').forEach(img => {
+    img.addEventListener('click', (e) => {
+      e.stopPropagation();
+      lightboxImg.src = img.src;
+      overlay.classList.add('open');
+    });
+  });
+
+  overlay.addEventListener('click', () => overlay.classList.remove('open'));
+  document.getElementById('lightbox-close').addEventListener('click', () => overlay.classList.remove('open'));
+  lightboxImg.addEventListener('click', (e) => e.stopPropagation());
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') overlay.classList.remove('open'); });
 
   // ── SHOWCASE FLEX DIRECTION RESPONSIVE ──
   function fixShowcase() {
@@ -915,13 +974,12 @@
       if (window.innerWidth < 768) {
         s.style.flexDirection = 'column';
       } else {
-        s.style.flexDirection = s.dataset.dir || s.style.flexDirection;
+        s.style.flexDirection = s.dataset.dir || s.getAttribute('style')?.match(/flex-direction:\s*([^;]+)/)?.[1] || 'row';
       }
     });
   }
   window.addEventListener('resize', fixShowcase);
   fixShowcase();
 </script>
-
 </body>
 </html>
