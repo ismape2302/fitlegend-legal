@@ -23,9 +23,9 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body { background: var(--bg); color: var(--text); font-family: 'Outfit', sans-serif; overflow-x: hidden; }
-
+ 
     #particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
-
+ 
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
@@ -40,9 +40,9 @@
     .nav-links a:hover { color: var(--accent); }
     .nav-cta { background: var(--accent); color: #050f0f; font-weight: 700; font-size: .88rem; padding: .5rem 1.3rem; border-radius: 100px; text-decoration: none; transition: transform .2s, box-shadow .2s; }
     .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 0 20px var(--accent-glow); }
-
+ 
     section { position: relative; z-index: 1; }
-
+ 
     .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 7rem 1.5rem 4rem; }
     .hero-badge { display: inline-flex; align-items: center; gap: .4rem; background: rgba(0,245,160,.1); border: 1px solid rgba(0,245,160,.3); border-radius: 100px; padding: .35rem 1rem; font-size: .78rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.8rem; animation: fadeUp .8s ease both; }
     .hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3.5rem, 10vw, 8rem); line-height: .95; letter-spacing: .04em; animation: fadeUp .8s .1s ease both; }
@@ -54,7 +54,7 @@
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 32px rgba(0,245,160,.35); }
     .btn-ghost { border: 1px solid var(--border); color: var(--text); font-weight: 500; font-size: 1rem; padding: .85rem 2rem; border-radius: 100px; text-decoration: none; transition: border-color .2s, background .2s; }
     .btn-ghost:hover { border-color: var(--accent); background: var(--accent-glow2); }
-
+ 
     .phones-strip { padding: 1rem 0 5rem; overflow: hidden; position: relative; z-index: 1; animation: fadeUp .8s .5s ease both; }
     .phones-track { display: flex; gap: 1.5rem; justify-content: center; align-items: flex-end; padding: 0 2rem; }
     .phone-wrap { flex-shrink: 0; position: relative; transition: transform .4s cubic-bezier(.22,.68,0,1.2); }
@@ -67,13 +67,13 @@
     .phone-frame img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
     .phone-glow { position: absolute; inset: -1px; border-radius: 29px; background: linear-gradient(135deg, rgba(0,245,160,.12), transparent 60%); pointer-events: none; }
     .phone-label { position: absolute; bottom: -2rem; left: 50%; transform: translateX(-50%); font-size: .7rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
-
+ 
     .stats-bar { padding: 3rem 2rem; background: linear-gradient(135deg, var(--card), var(--card2)); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); position: relative; z-index: 1; }
     .stats-inner { max-width: 900px; margin: 0 auto; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 2rem; }
     .stat-item { text-align: center; }
     .stat-number { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; letter-spacing: .04em; color: var(--accent); line-height: 1; }
     .stat-label { font-size: .8rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-top: .3rem; }
-
+ 
     .features { padding: 6rem 2rem; max-width: 1100px; margin: 0 auto; }
     .section-label { font-size: .75rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--accent); margin-bottom: .8rem; }
     .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5vw, 4rem); letter-spacing: .04em; line-height: 1; margin-bottom: 3rem; }
@@ -86,7 +86,7 @@
     .feature-card h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: .06em; color: var(--accent); margin-bottom: .5rem; }
     .feature-card p { color: var(--muted); font-size: .9rem; line-height: 1.6; }
     .feature-card.featured { border-color: rgba(0,245,160,.25); background: linear-gradient(135deg, var(--card2), var(--card)); }
-
+ 
     .screenshots { padding: 6rem 2rem; background: linear-gradient(180deg, transparent, var(--bg2) 20%, var(--bg2) 80%, transparent); overflow: hidden; }
     .screenshot-showcase { display: flex; gap: 3rem; align-items: center; margin-top: 3rem; max-width: 1100px; margin-left: auto; margin-right: auto; }
     .screenshot-showcase.reverse { flex-direction: row-reverse; }
@@ -99,7 +99,7 @@
     .showcase-phone img { width: 100%; height: auto; display: block; }
     .showcase-phone.tall { transform: translateY(-20px); }
     .showcase-phone.tall:hover { transform: translateY(-28px); }
-
+ 
     .testimonials { padding: 6rem 2rem; max-width: 1100px; margin: 0 auto; }
     .testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
     .testi-card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 1.8rem; transition: transform .3s, border-color .3s; }
@@ -110,7 +110,7 @@
     .testi-avatar { width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), #007a50); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: .9rem; color: #050f0f; flex-shrink: 0; }
     .testi-name { font-weight: 600; font-size: .9rem; }
     .testi-meta { color: var(--muted); font-size: .78rem; }
-
+ 
     .download-cta { padding: 7rem 2rem; text-align: center; position: relative; overflow: hidden; z-index: 1; }
     .download-cta::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 600px; height: 600px; background: radial-gradient(circle, rgba(0,245,160,.07) 0%, transparent 70%); pointer-events: none; }
     .download-cta h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 7vw, 6rem); letter-spacing: .04em; line-height: 1; margin-bottom: 1rem; }
@@ -121,16 +121,16 @@
     .store-btn.google:hover { transform: translateY(-2px); box-shadow: 0 0 30px rgba(0,245,160,.35); }
     .store-btn.apple { background: transparent; border: 1px solid var(--border); color: var(--muted); cursor: not-allowed; }
     .soon { font-size: .7rem; background: var(--card); padding: .1rem .4rem; border-radius: 4px; }
-
+ 
     footer { border-top: 1px solid var(--border); padding: 2rem 2.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; color: var(--muted); font-size: .82rem; position: relative; z-index: 1; }
     .footer-links { display: flex; gap: 1.5rem; }
     .footer-links a { color: var(--muted); text-decoration: none; transition: color .2s; }
     .footer-links a:hover { color: var(--accent); }
-
+ 
     @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
     .reveal { opacity: 0; transform: translateY(40px); transition: opacity .7s ease, transform .7s ease; }
     .reveal.visible { opacity: 1; transform: none; }
-
+ 
     @media (max-width: 768px) {
       nav { padding: 1rem 1.5rem; }
       .nav-links { display: none; }
@@ -143,9 +143,9 @@
   </style>
 </head>
 <body>
-
+ 
 <canvas id="particles"></canvas>
-
+ 
 <nav>
   <a href="#" class="nav-logo">⚔️ Fit<span>Legend</span></a>
   <ul class="nav-links">
@@ -155,7 +155,7 @@
   </ul>
   <a href="https://play.google.com/store/apps/details?id=com.impapps.fitlegend" class="nav-cta" target="_blank">▶ Descargar</a>
 </nav>
-
+ 
 <section class="hero">
   <div class="hero-badge">⚡ Disponible en Google Play</div>
   <h1>
@@ -169,7 +169,7 @@
     <a href="#screenshots" class="btn-ghost">Ver la app →</a>
   </div>
 </section>
-
+ 
 <div class="phones-strip">
   <div class="phones-track">
     <div class="phone-wrap side">
@@ -194,7 +194,7 @@
     </div>
   </div>
 </div>
-
+ 
 <div class="stats-bar reveal">
   <div class="stats-inner">
     <div class="stat-item"><div class="stat-number">10+</div><div class="stat-label">Usuarios activos</div></div>
@@ -204,7 +204,7 @@
     <div class="stat-item"><div class="stat-number">4.8★</div><div class="stat-label">Valoración</div></div>
   </div>
 </div>
-
+ 
 <section class="features" id="features">
   <div class="reveal">
     <p class="section-label">¿Qué incluye?</p>
@@ -219,7 +219,7 @@
     <div class="feature-card reveal"><span class="feature-icon">🗺️</span><h3>Rutas GPS</h3><p>Registra tus rutas de running, ciclismo y senderismo con Google Maps. Analiza cada recorrido en detalle.</p></div>
   </div>
 </section>
-
+ 
 <section class="screenshots" id="screenshots">
   <div class="reveal" style="text-align:center">
     <p class="section-label">La app por dentro</p>
@@ -246,7 +246,7 @@
     </div>
   </div>
 </section>
-
+ 
 <section class="testimonials" id="testimonios">
   <div class="reveal">
     <p class="section-label">Lo que dicen</p>
@@ -270,7 +270,7 @@
     </div>
   </div>
 </section>
-
+ 
 <section class="download-cta">
   <h2>EMPIEZA TU<br><span style="color:var(--accent)">LEYENDA</span></h2>
   <p>Descarga gratis. Entrena. Sube de nivel. Conviértete en una leyenda.</p>
@@ -279,7 +279,7 @@
     <span class="store-btn apple">🍎 App Store <span class="soon">Próximamente</span></span>
   </div>
 </section>
-
+ 
 <footer>
   <div>© 2026 ImpApps Studio</div>
   <div class="footer-links">
@@ -288,14 +288,14 @@
     <a href="mailto:isaacmp4747@gmail.com">Contacto</a>
   </div>
 </footer>
-
+ 
 <script>
   const canvas = document.getElementById('particles');
   const ctx = canvas.getContext('2d');
   let W, H, particles = [];
   function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
   window.addEventListener('resize', resize); resize();
-
+ 
   class Particle {
     constructor() { this.reset(); }
     reset() {
@@ -308,7 +308,7 @@
     draw() { ctx.beginPath(); ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2); ctx.fillStyle = this.color; ctx.globalAlpha = this.alpha; ctx.fill(); }
   }
   for (let i = 0; i < 120; i++) particles.push(new Particle());
-
+ 
   function animate() {
     ctx.clearRect(0, 0, W, H);
     particles.forEach(p => { p.update(); p.draw(); });
@@ -323,7 +323,7 @@
     requestAnimationFrame(animate);
   }
   animate();
-
+ 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((e, i) => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 80); observer.unobserve(e.target); } });
   }, { threshold: 0.1 });
