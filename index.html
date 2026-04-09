@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FitLegend – Conviértete en una leyenda del fitness</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-  <link rel="icon" type="image/x-icon" href="imgs/favicon.ico" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="icon" type="image/x-icon" href="imgs/favicon.ico">
   <style>
     :root {
       --bg: #050f0f;
@@ -15,18 +17,26 @@
       --card2: #0f2525;
       --accent: #00F5A0;
       --accent2: #00c97e;
-      --accent-glow: rgba(0,245,160,0.18);
-      --accent-glow2: rgba(0,245,160,0.06);
+      --accent-glow: rgba(0, 245, 160, 0.18);
+      --accent-glow2: rgba(0, 245, 160, 0.06);
       --gold: #FFD700;
       --fire: #ff6b35;
       --text: #f0faf5;
       --muted: #6b9e8a;
-      --border: rgba(0,245,160,0.12);
+      --border: rgba(0, 245, 160, 0.12);
     }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       background: var(--bg);
@@ -39,8 +49,10 @@
     /* ── PARTICLES CANVAS ── */
     #particles {
       position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       pointer-events: none;
       z-index: 0;
     }
@@ -48,26 +60,40 @@
     /* ── NAV ── */
     nav {
       position: fixed;
-      top: 0; left: 0; right: 0;
+      top: 0;
+      left: 0;
+      right: 0;
       z-index: 100;
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 1rem 2.5rem;
-      background: rgba(5,15,15,0.7);
+      background: rgba(5, 15, 15, 0.7);
       backdrop-filter: blur(18px);
       border-bottom: 1px solid var(--border);
     }
+
     .nav-logo {
-      display: flex; align-items: center; gap: .6rem;
+      display: flex;
+      align-items: center;
+      gap: .6rem;
       font-family: 'Bebas Neue', sans-serif;
       font-size: 1.6rem;
       letter-spacing: .08em;
       color: var(--accent);
       text-decoration: none;
     }
-    .nav-logo span { color: var(--text); }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
+
+    .nav-logo span {
+      color: var(--text);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
     .nav-links a {
       color: var(--muted);
       text-decoration: none;
@@ -76,7 +102,11 @@
       letter-spacing: .04em;
       transition: color .25s;
     }
-    .nav-links a:hover { color: var(--accent); }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
     .nav-cta {
       background: var(--accent);
       color: #050f0f;
@@ -88,13 +118,17 @@
       letter-spacing: .04em;
       transition: transform .2s, box-shadow .2s;
     }
+
     .nav-cta:hover {
       transform: translateY(-1px);
       box-shadow: 0 0 20px var(--accent-glow);
     }
 
     /* ── SECTIONS ── */
-    section { position: relative; z-index: 1; }
+    section {
+      position: relative;
+      z-index: 1;
+    }
 
     /* ── HERO ── */
     .hero {
@@ -106,12 +140,13 @@
       text-align: center;
       padding: 7rem 1.5rem 5rem;
     }
+
     .hero-badge {
       display: inline-flex;
       align-items: center;
       gap: .4rem;
-      background: rgba(0,245,160,.1);
-      border: 1px solid rgba(0,245,160,.3);
+      background: rgba(0, 245, 160, .1);
+      border: 1px solid rgba(0, 245, 160, .3);
       border-radius: 100px;
       padding: .35rem 1rem;
       font-size: .78rem;
@@ -122,7 +157,11 @@
       margin-bottom: 1.8rem;
       animation: fadeUp .8s ease both;
     }
-    .hero-badge::before { content: '⚡'; }
+
+    .hero-badge::before {
+      content: '⚡';
+    }
+
     .hero h1 {
       font-family: 'Bebas Neue', sans-serif;
       font-size: clamp(3.5rem, 10vw, 8rem);
@@ -130,8 +169,15 @@
       letter-spacing: .04em;
       animation: fadeUp .8s .1s ease both;
     }
-    .hero h1 .accent { color: var(--accent); }
-    .hero h1 .dim { color: var(--muted); }
+
+    .hero h1 .accent {
+      color: var(--accent);
+    }
+
+    .hero h1 .dim {
+      color: var(--muted);
+    }
+
     .hero-sub {
       max-width: 520px;
       color: var(--muted);
@@ -141,6 +187,7 @@
       margin-top: 1.2rem;
       animation: fadeUp .8s .2s ease both;
     }
+
     .hero-actions {
       display: flex;
       gap: 1rem;
@@ -149,6 +196,7 @@
       justify-content: center;
       animation: fadeUp .8s .3s ease both;
     }
+
     .btn-primary {
       background: var(--accent);
       color: #050f0f;
@@ -157,13 +205,17 @@
       padding: .85rem 2rem;
       border-radius: 100px;
       text-decoration: none;
-      display: flex; align-items: center; gap: .5rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
       transition: transform .2s, box-shadow .2s;
     }
+
     .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 0 32px rgba(0,245,160,.35);
+      box-shadow: 0 0 32px rgba(0, 245, 160, .35);
     }
+
     .btn-ghost {
       border: 1px solid var(--border);
       color: var(--text);
@@ -175,6 +227,7 @@
       transition: border-color .2s, background .2s;
       backdrop-filter: blur(8px);
     }
+
     .btn-ghost:hover {
       border-color: var(--accent);
       background: var(--accent-glow2);
@@ -188,6 +241,7 @@
       z-index: 1;
       animation: fadeUp .8s .5s ease both;
     }
+
     .phones-track {
       display: flex;
       gap: 1.5rem;
@@ -196,32 +250,50 @@
       flex-wrap: nowrap;
       padding: 0 2rem;
     }
+
     .phone-wrap {
       flex-shrink: 0;
       position: relative;
-      transition: transform .4s cubic-bezier(.22,.68,0,1.2);
+      transition: transform .4s cubic-bezier(.22, .68, 0, 1.2);
     }
-    .phone-wrap:hover { transform: translateY(-12px) scale(1.03); }
+
+    .phone-wrap:hover {
+      transform: translateY(-12px) scale(1.03);
+    }
+
     .phone-wrap.center {
       transform: scale(1.08);
       z-index: 2;
     }
-    .phone-wrap.center:hover { transform: scale(1.11) translateY(-12px); }
-    .phone-wrap.side { opacity: .75; transform: scale(0.93) translateY(20px); }
-    .phone-wrap.side:hover { opacity: 1; transform: scale(0.96) translateY(8px); }
+
+    .phone-wrap.center:hover {
+      transform: scale(1.11) translateY(-12px);
+    }
+
+    .phone-wrap.side {
+      opacity: .75;
+      transform: scale(0.93) translateY(20px);
+    }
+
+    .phone-wrap.side:hover {
+      opacity: 1;
+      transform: scale(0.96) translateY(8px);
+    }
+
     .phone-frame {
       width: 180px;
       height: 380px;
       border-radius: 28px;
-      border: 2px solid rgba(0,245,160,0.25);
+      border: 2px solid rgba(0, 245, 160, 0.25);
       overflow: hidden;
       box-shadow:
-        0 30px 60px rgba(0,0,0,.6),
-        0 0 0 1px rgba(0,245,160,.05),
-        inset 0 0 0 1px rgba(255,255,255,.04);
+        0 30px 60px rgba(0, 0, 0, .6),
+        0 0 0 1px rgba(0, 245, 160, .05),
+        inset 0 0 0 1px rgba(255, 255, 255, .04);
       background: #0a1a1a;
       position: relative;
     }
+
     .phone-frame img {
       width: 100%;
       height: 100%;
@@ -229,13 +301,15 @@
       object-position: top center;
       display: block;
     }
+
     .phone-glow {
       position: absolute;
       inset: -1px;
       border-radius: 29px;
-      background: linear-gradient(135deg, rgba(0,245,160,.15), transparent 60%);
+      background: linear-gradient(135deg, rgba(0, 245, 160, .15), transparent 60%);
       pointer-events: none;
     }
+
     .phone-label {
       position: absolute;
       bottom: -2rem;
@@ -256,6 +330,7 @@
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
     }
+
     .stats-inner {
       max-width: 900px;
       margin: 0 auto;
@@ -264,7 +339,11 @@
       flex-wrap: wrap;
       gap: 2rem;
     }
-    .stat-item { text-align: center; }
+
+    .stat-item {
+      text-align: center;
+    }
+
     .stat-number {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 3rem;
@@ -272,6 +351,7 @@
       color: var(--accent);
       line-height: 1;
     }
+
     .stat-label {
       font-size: .8rem;
       font-weight: 600;
@@ -287,6 +367,7 @@
       max-width: 1100px;
       margin: 0 auto;
     }
+
     .section-label {
       font-size: .75rem;
       font-weight: 700;
@@ -295,6 +376,7 @@
       color: var(--accent);
       margin-bottom: .8rem;
     }
+
     .section-title {
       font-family: 'Bebas Neue', sans-serif;
       font-size: clamp(2.5rem, 5vw, 4rem);
@@ -302,11 +384,13 @@
       line-height: 1;
       margin-bottom: 3.5rem;
     }
+
     .features-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 1.5rem;
     }
+
     .feature-card {
       background: var(--card);
       border: 1px solid var(--border);
@@ -316,26 +400,35 @@
       overflow: hidden;
       transition: transform .3s, border-color .3s, box-shadow .3s;
     }
+
     .feature-card::before {
       content: '';
       position: absolute;
-      top: 0; left: 0; right: 0;
+      top: 0;
+      left: 0;
+      right: 0;
       height: 1px;
       background: linear-gradient(90deg, transparent, var(--accent), transparent);
       opacity: 0;
       transition: opacity .3s;
     }
+
     .feature-card:hover {
       transform: translateY(-4px);
-      border-color: rgba(0,245,160,.3);
-      box-shadow: 0 20px 40px rgba(0,0,0,.4), 0 0 40px var(--accent-glow2);
+      border-color: rgba(0, 245, 160, .3);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, .4), 0 0 40px var(--accent-glow2);
     }
-    .feature-card:hover::before { opacity: 1; }
+
+    .feature-card:hover::before {
+      opacity: 1;
+    }
+
     .feature-icon {
       font-size: 2rem;
       margin-bottom: 1rem;
       display: block;
     }
+
     .feature-card h3 {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 1.5rem;
@@ -343,13 +436,15 @@
       color: var(--accent);
       margin-bottom: .5rem;
     }
+
     .feature-card p {
       color: var(--muted);
       font-size: .9rem;
       line-height: 1.6;
     }
+
     .feature-card.featured {
-      border-color: rgba(0,245,160,.25);
+      border-color: rgba(0, 245, 160, .25);
       background: linear-gradient(135deg, var(--card2), var(--card));
     }
 
@@ -359,9 +454,12 @@
       background: linear-gradient(180deg, transparent, var(--bg2) 30%, var(--bg2) 70%, transparent);
       overflow: hidden;
     }
-    .screenshots .section-label, .screenshots .section-title {
+
+    .screenshots .section-label,
+    .screenshots .section-title {
       text-align: center;
     }
+
     .screenshot-showcase {
       display: flex;
       gap: 2rem;
@@ -371,7 +469,12 @@
       margin-left: auto;
       margin-right: auto;
     }
-    .showcase-text { flex: 1; min-width: 260px; }
+
+    .showcase-text {
+      flex: 1;
+      min-width: 260px;
+    }
+
     .showcase-text h3 {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 2.5rem;
@@ -379,34 +482,47 @@
       color: var(--accent);
       margin-bottom: .6rem;
     }
+
     .showcase-text p {
       color: var(--muted);
       line-height: 1.7;
       font-size: .95rem;
     }
+
     .showcase-phones {
       display: flex;
       gap: 1.2rem;
       align-items: flex-end;
       flex: 1.5;
     }
+
     .showcase-phone {
       flex: 1;
       border-radius: 24px;
-      border: 1.5px solid rgba(0,245,160,.2);
+      border: 1.5px solid rgba(0, 245, 160, .2);
       overflow: hidden;
-      box-shadow: 0 24px 50px rgba(0,0,0,.5);
+      box-shadow: 0 24px 50px rgba(0, 0, 0, .5);
       background: #0a1a1a;
       transition: transform .3s;
     }
-    .showcase-phone:hover { transform: translateY(-8px); }
+
+    .showcase-phone:hover {
+      transform: translateY(-8px);
+    }
+
     .showcase-phone img {
       width: 100%;
       height: auto;
       display: block;
     }
-    .showcase-phone.tall { transform: translateY(-20px); }
-    .showcase-phone.tall:hover { transform: translateY(-28px); }
+
+    .showcase-phone.tall {
+      transform: translateY(-20px);
+    }
+
+    .showcase-phone.tall:hover {
+      transform: translateY(-28px);
+    }
 
     /* ── TESTIMONIALS ── */
     .testimonials {
@@ -414,12 +530,14 @@
       max-width: 1100px;
       margin: 0 auto;
     }
+
     .testi-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.5rem;
       margin-top: 3rem;
     }
+
     .testi-card {
       background: var(--card);
       border: 1px solid var(--border);
@@ -428,16 +546,19 @@
       transition: transform .3s, border-color .3s;
       position: relative;
     }
+
     .testi-card:hover {
       transform: translateY(-4px);
-      border-color: rgba(0,245,160,.25);
+      border-color: rgba(0, 245, 160, .25);
     }
+
     .testi-stars {
       color: var(--gold);
       font-size: .9rem;
       margin-bottom: .8rem;
       letter-spacing: .1em;
     }
+
     .testi-text {
       color: var(--text);
       font-size: .95rem;
@@ -445,14 +566,24 @@
       margin-bottom: 1.2rem;
       font-style: italic;
     }
-    .testi-text::before { content: '\201C'; color: var(--accent); font-size: 1.5em; line-height: 0; vertical-align: -.3em; }
+
+    .testi-text::before {
+      content: '\201C';
+      color: var(--accent);
+      font-size: 1.5em;
+      line-height: 0;
+      vertical-align: -.3em;
+    }
+
     .testi-author {
       display: flex;
       align-items: center;
       gap: .8rem;
     }
+
     .testi-avatar {
-      width: 38px; height: 38px;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
       background: linear-gradient(135deg, var(--accent), #007a50);
       display: flex;
@@ -463,8 +594,16 @@
       color: #050f0f;
       flex-shrink: 0;
     }
-    .testi-name { font-weight: 600; font-size: .9rem; }
-    .testi-meta { color: var(--muted); font-size: .78rem; }
+
+    .testi-name {
+      font-weight: 600;
+      font-size: .9rem;
+    }
+
+    .testi-meta {
+      color: var(--muted);
+      font-size: .78rem;
+    }
 
     /* ── DOWNLOAD CTA ── */
     .download-cta {
@@ -473,15 +612,19 @@
       position: relative;
       overflow: hidden;
     }
+
     .download-cta::before {
       content: '';
       position: absolute;
-      top: 50%; left: 50%;
+      top: 50%;
+      left: 50%;
       transform: translate(-50%, -50%);
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(0,245,160,.08) 0%, transparent 70%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(0, 245, 160, .08) 0%, transparent 70%);
       pointer-events: none;
     }
+
     .download-cta h2 {
       font-family: 'Bebas Neue', sans-serif;
       font-size: clamp(3rem, 7vw, 6rem);
@@ -489,6 +632,7 @@
       line-height: 1;
       margin-bottom: 1rem;
     }
+
     .download-cta p {
       color: var(--muted);
       font-size: 1.1rem;
@@ -496,12 +640,14 @@
       margin: 0 auto 2.5rem;
       line-height: 1.6;
     }
+
     .store-buttons {
       display: flex;
       gap: 1rem;
       justify-content: center;
       flex-wrap: wrap;
     }
+
     .store-btn {
       display: flex;
       align-items: center;
@@ -513,20 +659,24 @@
       font-size: .95rem;
       transition: transform .2s, box-shadow .2s;
     }
+
     .store-btn.google {
       background: var(--accent);
       color: #050f0f;
     }
+
     .store-btn.google:hover {
       transform: translateY(-2px);
-      box-shadow: 0 0 30px rgba(0,245,160,.35);
+      box-shadow: 0 0 30px rgba(0, 245, 160, .35);
     }
+
     .store-btn.apple {
       background: transparent;
       border: 1px solid var(--border);
       color: var(--muted);
       cursor: not-allowed;
     }
+
     .store-btn.apple span.soon {
       font-size: .7rem;
       background: var(--card);
@@ -547,22 +697,55 @@
       color: var(--muted);
       font-size: .82rem;
     }
-    .footer-links { display: flex; gap: 1.5rem; }
-    .footer-links a { color: var(--muted); text-decoration: none; transition: color .2s; }
-    .footer-links a:hover { color: var(--accent); }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color .2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
 
     /* ── ANIMATIONS ── */
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to   { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
+
     @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50%       { transform: translateY(-8px); }
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-8px);
+      }
     }
+
     @keyframes countUp {
-      from { opacity: 0; }
-      to   { opacity: 1; }
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
     }
 
     .reveal {
@@ -570,6 +753,7 @@
       transform: translateY(40px);
       transition: opacity .7s ease, transform .7s ease;
     }
+
     .reveal.visible {
       opacity: 1;
       transform: none;
@@ -581,667 +765,773 @@
       position: fixed;
       inset: 0;
       z-index: 1000;
-      background: rgba(0,0,0,.88);
+      background: rgba(0, 0, 0, .88);
       backdrop-filter: blur(8px);
       align-items: center;
       justify-content: center;
       cursor: zoom-out;
     }
-    .lightbox-overlay.open { display: flex; }
+
+    .lightbox-overlay.open {
+      display: flex;
+    }
+
     .lightbox-overlay img {
       max-width: 92vw;
       max-height: 90vh;
       border-radius: 20px;
-      box-shadow: 0 40px 80px rgba(0,0,0,.8), 0 0 0 1px rgba(0,245,160,.15);
+      box-shadow: 0 40px 80px rgba(0, 0, 0, .8), 0 0 0 1px rgba(0, 245, 160, .15);
       object-fit: contain;
       cursor: default;
     }
+
     .lightbox-close {
       position: absolute;
-      top: 1.2rem; right: 1.5rem;
+      top: 1.2rem;
+      right: 1.5rem;
       color: var(--muted);
       font-size: 2rem;
       cursor: pointer;
       line-height: 1;
       transition: color .2s;
     }
-    .lightbox-close:hover { color: var(--accent); }
-    .phone-frame img, .showcase-phone img { cursor: zoom-in; }
+
+    .lightbox-close:hover {
+      color: var(--accent);
+    }
+
+    .phone-frame img,
+    .showcase-phone img {
+      cursor: zoom-in;
+    }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
-      nav { padding: 1rem 1.5rem; }
-      .nav-links { display: none; }
-      .phones-strip { overflow-x: auto; overflow-y: visible; -webkit-overflow-scrolling: touch; padding-bottom: 4rem; }
-      .phones-strip::-webkit-scrollbar { display: none; }
-      .phones-track { justify-content: flex-start; padding: 0 1.5rem; min-width: max-content; }
-      .phone-frame { width: 140px; height: 295px; }
-      .screenshot-showcase { flex-direction: column; }
-      .showcase-phones { justify-content: center; }
-      footer { flex-direction: column; text-align: center; }
+      nav {
+        padding: 1rem 1.5rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .phones-strip {
+        overflow-x: auto;
+        overflow-y: visible;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 4rem;
+      }
+
+      .phones-strip::-webkit-scrollbar {
+        display: none;
+      }
+
+      .phones-track {
+        justify-content: flex-start;
+        padding: 0 1.5rem;
+        min-width: max-content;
+      }
+
+      .phone-frame {
+        width: 140px;
+        height: 295px;
+      }
+
+      .screenshot-showcase {
+        flex-direction: column;
+      }
+
+      .showcase-phones {
+        justify-content: center;
+      }
+
+      footer {
+        flex-direction: column;
+        text-align: center;
+      }
     }
 
-    /* ── AUTH MODAL ── */
-    .auth-modal-overlay { display: none; position: fixed; inset: 0; z-index: 200; background: rgba(0,0,0,.75); backdrop-filter: blur(10px); align-items: center; justify-content: center; }
-    .auth-modal-overlay.open { display: flex; }
-    .auth-modal { background: var(--card); border: 1px solid rgba(0,245,160,.2); border-radius: 24px; padding: 2.5rem; width: 100%; max-width: 420px; margin: 1rem; position: relative; box-shadow: 0 40px 80px rgba(0,0,0,.6), 0 0 0 1px rgba(0,245,160,.08); animation: fadeUp .3s ease both; }
-    .auth-modal-close { position: absolute; top: 1.2rem; right: 1.5rem; color: var(--muted); font-size: 1.5rem; cursor: pointer; transition: color .2s; background: none; border: none; }
-    .auth-modal-close:hover { color: var(--accent); }
-    .auth-modal-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: .08em; color: var(--accent); margin-bottom: .3rem; }
-    .auth-modal-logo span { color: var(--text); }
-    .auth-modal-subtitle { color: var(--muted); font-size: .88rem; margin-bottom: 1.8rem; }
-    .auth-tabs { display: flex; margin-bottom: 1.8rem; background: var(--bg); border-radius: 100px; padding: .25rem; }
-    .auth-tab { flex: 1; text-align: center; padding: .5rem 1rem; border-radius: 100px; font-size: .88rem; font-weight: 600; cursor: pointer; color: var(--muted); transition: all .2s; border: none; background: none; }
-    .auth-tab.active { background: var(--accent); color: #050f0f; }
-    .auth-form { display: flex; flex-direction: column; gap: 1rem; }
-    .auth-form.hidden { display: none; }
-    .auth-input { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: .85rem 1.1rem; color: var(--text); font-family: 'Outfit', sans-serif; font-size: .95rem; outline: none; transition: border-color .2s; width: 100%; }
-    .auth-input:focus { border-color: rgba(0,245,160,.5); }
-    .auth-input::placeholder { color: var(--muted); }
-    .auth-btn-submit { background: var(--accent); color: #050f0f; font-weight: 700; font-size: 1rem; padding: .9rem; border-radius: 100px; border: none; cursor: pointer; font-family: 'Outfit', sans-serif; transition: transform .2s, box-shadow .2s; margin-top: .3rem; }
-    .auth-btn-submit:hover { transform: translateY(-1px); box-shadow: 0 0 24px rgba(0,245,160,.35); }
-    .auth-btn-submit:disabled { opacity: .6; cursor: not-allowed; transform: none; }
-    .auth-divider { display: flex; align-items: center; gap: 1rem; color: var(--muted); font-size: .8rem; }
-    .auth-divider::before, .auth-divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-    .auth-btn-google { background: transparent; border: 1px solid var(--border); color: var(--text); font-weight: 600; font-size: .92rem; padding: .85rem; border-radius: 100px; cursor: pointer; font-family: 'Outfit', sans-serif; transition: border-color .2s, background .2s; display: flex; align-items: center; justify-content: center; gap: .6rem; }
-    .auth-btn-google:hover { border-color: rgba(0,245,160,.35); background: var(--accent-glow2); }
-    .auth-error { color: #ff6b6b; font-size: .82rem; text-align: center; min-height: 1.2rem; }
+    .auth-modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(0, 0, 0, .75);
+      backdrop-filter: blur(10px);
+      align-items: center;
+      justify-content: center
+    }
 
-    /* ── NAV USER + DROPDOWN ── */
-    .nav-user { display: none; align-items: center; gap: .6rem; position: relative; }
-    .nav-user.visible { display: flex; }
-    .nav-user-btn { display: flex; align-items: center; gap: .6rem; cursor: pointer; background: none; border: none; padding: 0; }
-    .nav-user-emoji { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), #007a50); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; border: 2px solid rgba(0,245,160,.3); }
-    .nav-user-info { text-align: left; }
-    .nav-user-name { font-size: .88rem; font-weight: 600; color: var(--text); max-width: 120px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: block; }
-    .nav-user-handle { font-size: .72rem; color: var(--muted); display: block; }
-    .nav-dropdown { display: none; position: absolute; top: calc(100% + .8rem); right: 0; min-width: 200px; background: var(--card); border: 1px solid var(--border); border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,.5); overflow: hidden; animation: fadeUp .2s ease both; z-index: 300; }
-    .nav-dropdown.open { display: block; }
-    .nav-dropdown-item { display: flex; align-items: center; gap: .8rem; padding: .85rem 1.2rem; color: var(--text); font-size: .9rem; font-weight: 500; cursor: pointer; transition: background .2s; border: none; background: none; width: 100%; text-align: left; font-family: 'Outfit', sans-serif; }
-    .nav-dropdown-item:hover { background: rgba(0,245,160,.06); }
-    .nav-dropdown-item.danger { color: #ff6b6b; }
-    .nav-dropdown-item.danger:hover { background: rgba(255,107,107,.06); }
-    .nav-dropdown-divider { height: 1px; background: var(--border); margin: .3rem 0; }
+    .auth-modal-overlay.open {
+      display: flex
+    }
 
-    /* ── SIDE PANELS ── */
-    .side-panel-overlay { display: none; position: fixed; inset: 0; z-index: 250; background: rgba(0,0,0,.6); backdrop-filter: blur(6px); }
-    .side-panel-overlay.open { display: block; }
-    .side-panel { position: fixed; top: 0; right: -480px; width: 100%; max-width: 460px; height: 100vh; background: var(--bg); border-left: 1px solid var(--border); z-index: 260; overflow-y: auto; transition: right .35s cubic-bezier(.22,.68,0,1.1); padding-bottom: 3rem; }
-    .side-panel.open { right: 0; }
-    .side-panel-header { display: flex; align-items: center; gap: 1rem; padding: 1.2rem 1.5rem; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 1; }
-    .side-panel-back { background: none; border: none; color: var(--muted); font-size: 1.3rem; cursor: pointer; padding: .2rem .4rem; border-radius: 8px; transition: color .2s, background .2s; }
-    .side-panel-back:hover { color: var(--accent); background: var(--accent-glow2); }
-    .side-panel-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: .06em; color: var(--text); }
-    .profile-hero { display: flex; flex-direction: column; align-items: center; padding: 2rem 1.5rem 1.5rem; text-align: center; }
-    .profile-avatar-big { width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), #007a50); display: flex; align-items: center; justify-content: center; font-size: 2.2rem; margin-bottom: 1rem; border: 3px solid rgba(0,245,160,.3); }
-    .profile-username { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: .06em; color: var(--text); }
-    .profile-handle { color: var(--muted); font-size: .85rem; margin-top: .2rem; }
-    .profile-badges { display: flex; gap: .6rem; margin-top: .8rem; flex-wrap: wrap; justify-content: center; }
-    .profile-badge { padding: .3rem .8rem; border-radius: 100px; font-size: .75rem; font-weight: 700; border: 1px solid; }
-    .profile-badge.streak { color: #ff6b35; border-color: rgba(255,107,53,.3); background: rgba(255,107,53,.1); }
-    .profile-badge.gems { color: #00c8ff; border-color: rgba(0,200,255,.3); background: rgba(0,200,255,.1); }
-    .profile-badge.premium { color: var(--gold); border-color: rgba(255,215,0,.3); background: rgba(255,215,0,.1); }
-    .profile-stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; padding: 0 1.5rem 1.5rem; }
-    .profile-stat-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1rem; }
-    .profile-stat-emoji { font-size: 1.4rem; margin-bottom: .4rem; display: block; }
-    .profile-stat-value { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: .04em; color: var(--accent); line-height: 1; }
-    .profile-stat-label { color: var(--muted); font-size: .75rem; font-weight: 600; margin-top: .2rem; }
-    .profile-xp-bar-wrap { padding: 0 1.5rem 1.5rem; }
-    .profile-xp-bar-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1.2rem; }
-    .profile-xp-bar-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: .8rem; }
-    .profile-xp-label { color: var(--muted); font-size: .8rem; font-weight: 600; letter-spacing: .08em; }
-    .profile-xp-total { color: var(--gold); font-size: .8rem; font-weight: 700; }
-    .profile-xp-levels { display: flex; justify-content: space-between; margin-bottom: .5rem; }
-    .profile-xp-level { font-weight: 700; color: var(--text); font-size: .9rem; }
-    .profile-xp-bar { height: 8px; background: var(--border); border-radius: 4px; overflow: hidden; }
-    .profile-xp-bar-fill { height: 100%; background: var(--gold); border-radius: 4px; transition: width .8s ease; }
-    .profile-xp-progress { color: var(--muted); font-size: .75rem; margin-top: .4rem; text-align: right; }
-    .settings-section { padding: 1.2rem 1.5rem 0; }
-    .settings-section-title { color: var(--muted); font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; margin-bottom: .8rem; }
-    .settings-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; margin-bottom: 1rem; }
-    .settings-row { display: flex; align-items: center; gap: 1rem; padding: 1rem 1.2rem; cursor: pointer; transition: background .2s; border: none; background: none; width: 100%; text-align: left; font-family: 'Outfit', sans-serif; border-bottom: 1px solid var(--border); }
-    .settings-row:last-child { border-bottom: none; }
-    .settings-row:hover { background: rgba(0,245,160,.04); }
-    .settings-row-emoji { font-size: 1.2rem; flex-shrink: 0; }
-    .settings-row-text { flex: 1; }
-    .settings-row-label { color: var(--text); font-size: .9rem; font-weight: 500; }
-    .settings-row-sub { color: var(--muted); font-size: .78rem; margin-top: .1rem; }
-    .settings-row-arrow { color: var(--muted); font-size: .9rem; }
-    .edit-panel { display: none; padding: 1.5rem; }
-    .edit-panel.open { display: block; }
-    .edit-label { color: var(--muted); font-size: .8rem; font-weight: 600; margin-bottom: .5rem; display: block; }
-    .edit-save { background: var(--accent); color: #050f0f; font-weight: 700; font-size: .95rem; padding: .85rem; border-radius: 100px; border: none; cursor: pointer; font-family: 'Outfit', sans-serif; width: 100%; margin-top: .5rem; transition: transform .2s, box-shadow .2s; }
-    .edit-save:hover { transform: translateY(-1px); box-shadow: 0 0 20px rgba(0,245,160,.3); }
-    .edit-save:disabled { opacity: .6; cursor: not-allowed; transform: none; }
-    .edit-msg { font-size: .82rem; text-align: center; min-height: 1.2rem; margin-top: .5rem; }
-    .edit-msg.ok { color: var(--accent); }
-    .edit-msg.err { color: #ff6b6b; }
-    .avatar-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: .8rem; margin-bottom: 1.2rem; }
-    .avatar-option { aspect-ratio: 1; border-radius: 50%; background: var(--card); border: 2px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 1.6rem; cursor: pointer; transition: border-color .2s, background .2s; }
-    .avatar-option.selected { border-color: var(--accent); background: rgba(0,245,160,.1); }
+    .auth-modal {
+      background: var(--card);
+      border: 1px solid rgba(0, 245, 160, .2);
+      border-radius: 24px;
+      padding: 2.5rem;
+      width: 100%;
+      max-width: 420px;
+      margin: 1rem;
+      position: relative;
+      box-shadow: 0 40px 80px rgba(0, 0, 0, .6), 0 0 0 1px rgba(0, 245, 160, .08);
+      animation: fadeUp .3s ease both
+    }
+
+    .auth-modal-close {
+      position: absolute;
+      top: 1.2rem;
+      right: 1.5rem;
+      color: var(--muted);
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: color .2s;
+      background: none;
+      border: none
+    }
+
+    .auth-modal-close:hover {
+      color: var(--accent)
+    }
+
+    .auth-modal-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      letter-spacing: .08em;
+      color: var(--accent);
+      margin-bottom: .3rem
+    }
+
+    .auth-modal-logo span {
+      color: var(--text)
+    }
+
+    .auth-modal-subtitle {
+      color: var(--muted);
+      font-size: .88rem;
+      margin-bottom: 1.8rem
+    }
+
+    .auth-tabs {
+      display: flex;
+      margin-bottom: 1.8rem;
+      background: var(--bg);
+      border-radius: 100px;
+      padding: .25rem
+    }
+
+    .auth-tab {
+      flex: 1;
+      text-align: center;
+      padding: .5rem 1rem;
+      border-radius: 100px;
+      font-size: .88rem;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--muted);
+      transition: all .2s;
+      border: none;
+      background: none
+    }
+
+    .auth-tab.active {
+      background: var(--accent);
+      color: #050f0f
+    }
+
+    .auth-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem
+    }
+
+    .auth-form.hidden {
+      display: none
+    }
+
+    .auth-input {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: .85rem 1.1rem;
+      color: var(--text);
+      font-family: 'Outfit', sans-serif;
+      font-size: .95rem;
+      outline: none;
+      transition: border-color .2s;
+      width: 100%
+    }
+
+    .auth-input:focus {
+      border-color: rgba(0, 245, 160, .5)
+    }
+
+    .auth-input::placeholder {
+      color: var(--muted)
+    }
+
+    .auth-btn-submit {
+      background: var(--accent);
+      color: #050f0f;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: .9rem;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      font-family: 'Outfit', sans-serif;
+      transition: transform .2s, box-shadow .2s;
+      margin-top: .3rem
+    }
+
+    .auth-btn-submit:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 24px rgba(0, 245, 160, .35)
+    }
+
+    .auth-btn-submit:disabled {
+      opacity: .6;
+      cursor: not-allowed;
+      transform: none
+    }
+
+    .auth-divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      color: var(--muted);
+      font-size: .8rem
+    }
+
+    .auth-divider::before,
+    .auth-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border)
+    }
+
+    .auth-btn-google {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-weight: 600;
+      font-size: .92rem;
+      padding: .85rem;
+      border-radius: 100px;
+      cursor: pointer;
+      font-family: 'Outfit', sans-serif;
+      transition: border-color .2s, background .2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .6rem
+    }
+
+    .auth-btn-google:hover {
+      border-color: rgba(0, 245, 160, .35);
+      background: var(--accent-glow2)
+    }
+
+    .auth-error {
+      color: #ff6b6b;
+      font-size: .82rem;
+      text-align: center;
+      min-height: 1.2rem
+    }
+
+    .nav-user {
+      display: none;
+      align-items: center;
+      gap: .6rem;
+      position: relative
+    }
+
+    .nav-user.visible {
+      display: flex
+    }
+
+    .nav-user-btn {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0
+    }
+
+    .nav-user-emoji {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), #007a50);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      border: 2px solid rgba(0, 245, 160, .3)
+    }
+
+    .nav-user-info {
+      text-align: left
+    }
+
+    .nav-user-name {
+      font-size: .88rem;
+      font-weight: 600;
+      color: var(--text);
+      max-width: 120px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      display: block
+    }
+
+    .nav-user-handle {
+      font-size: .72rem;
+      color: var(--muted);
+      display: block
+    }
+
+    .nav-dropdown {
+      display: none;
+      position: absolute;
+      top: calc(100% + .8rem);
+      right: 0;
+      min-width: 200px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, .5);
+      overflow: hidden;
+      animation: fadeUp .2s ease both;
+      z-index: 300
+    }
+
+    .nav-dropdown.open {
+      display: block
+    }
+
+    .nav-dropdown-item {
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+      padding: .85rem 1.2rem;
+      color: var(--text);
+      font-size: .9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background .2s;
+      border: none;
+      background: none;
+      width: 100%;
+      text-align: left;
+      font-family: 'Outfit', sans-serif
+    }
+
+    .nav-dropdown-item:hover {
+      background: rgba(0, 245, 160, .06)
+    }
+
+    .nav-dropdown-item.danger {
+      color: #ff6b6b
+    }
+
+    .nav-dropdown-item.danger:hover {
+      background: rgba(255, 107, 107, .06)
+    }
+
+    .nav-dropdown-divider {
+      height: 1px;
+      background: var(--border);
+      margin: .3rem 0
+    }
   </style>
   <script type="module">
     import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
     import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged, updateProfile } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
     import { getFirestore, doc, getDoc, updateDoc } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
-    const firebaseConfig={apiKey:"AIzaSyA_XCqGwo1eXEA5soSc6QTYgy9A6jNz-Gk",authDomain:"fitquest-48c1b.firebaseapp.com",projectId:"fitquest-48c1b",storageBucket:"fitquest-48c1b.firebasestorage.app",messagingSenderId:"328306509996",appId:"1:328306509996:web:0ad19ec3803acac6ddb709"};
-    const app=initializeApp(firebaseConfig),auth=getAuth(app),db=getFirestore(app),provider=new GoogleAuthProvider();
-    const AVATARS=['⚔️','🥷','🦁','🐉','🔥','⚡','🌟','💎'];
-    const XP_TABLE=[0,500,1000,2000,3500,5500,8000,11000,15000,20000,26000];
-    function xpForLevel(l){return l<XP_TABLE.length?XP_TABLE[l]:l*3000;}
-    let currentUserData=null,selectedAvatarIndex=0;
-    const authOverlay=document.getElementById('auth-modal-overlay'),navCta=document.querySelector('.nav-cta'),navUser=document.getElementById('nav-user'),navUserEmoji=document.getElementById('nav-user-emoji'),navUserName=document.getElementById('nav-user-name'),navUserHandle=document.getElementById('nav-user-handle'),navDropdown=document.getElementById('nav-dropdown'),loginForm=document.getElementById('login-form'),registerForm=document.getElementById('register-form'),authError=document.getElementById('auth-error');
-    document.getElementById('btn-open-auth').addEventListener('click',(e)=>{e.preventDefault();authOverlay.classList.add('open');});
-    document.getElementById('auth-modal-close').addEventListener('click',()=>authOverlay.classList.remove('open'));
-    authOverlay.addEventListener('click',(e)=>{if(e.target===authOverlay)authOverlay.classList.remove('open');});
-    document.getElementById('tab-login').addEventListener('click',()=>{document.getElementById('tab-login').classList.add('active');document.getElementById('tab-register').classList.remove('active');loginForm.classList.remove('hidden');registerForm.classList.add('hidden');authError.textContent='';});
-    document.getElementById('tab-register').addEventListener('click',()=>{document.getElementById('tab-register').classList.add('active');document.getElementById('tab-login').classList.remove('active');registerForm.classList.remove('hidden');loginForm.classList.add('hidden');authError.textContent='';});
-    document.getElementById('nav-user-btn').addEventListener('click',(e)=>{e.stopPropagation();navDropdown.classList.toggle('open');});
-    document.addEventListener('click',()=>navDropdown.classList.remove('open'));
-    document.getElementById('dd-profile').addEventListener('click',()=>{navDropdown.classList.remove('open');openProfilePanel();});
-    document.getElementById('dd-settings').addEventListener('click',()=>{navDropdown.classList.remove('open');openSettingsPanel();});
-    document.getElementById('dd-logout').addEventListener('click',()=>{navDropdown.classList.remove('open');signOut(auth);});
-    function openProfilePanel(){document.getElementById('profile-overlay').classList.add('open');document.getElementById('profile-panel').classList.add('open');if(currentUserData)renderProfilePanel(currentUserData);}
-    function closeProfilePanel(){document.getElementById('profile-overlay').classList.remove('open');document.getElementById('profile-panel').classList.remove('open');}
-    document.getElementById('profile-close').addEventListener('click',closeProfilePanel);
-    document.getElementById('profile-overlay').addEventListener('click',closeProfilePanel);
-    function renderProfilePanel(d){
-      document.getElementById('profile-avatar-big').textContent=AVATARS[Math.min(d.avatar||0,AVATARS.length-1)];
-      document.getElementById('profile-display-name').textContent=d.name||d.username||'–';
-      document.getElementById('profile-display-handle').textContent=d.username?'@'+d.username:'';
-      document.getElementById('profile-streak-badge').textContent='🔥 '+(d.streak||0)+' días';
-      document.getElementById('profile-gems-badge').textContent='💎 '+(d.gems||0)+' gemas';
-      document.getElementById('profile-premium-badge').style.display=d.isPremium?'inline-block':'none';
-      document.getElementById('ps-workouts').textContent=d.progressWorkouts||0;
-      document.getElementById('ps-steps').textContent=(d.todaySteps||0).toLocaleString('es');
-      document.getElementById('ps-calories').textContent=d.caloriesBurned||0;
-      document.getElementById('ps-missions').textContent=d.missionsCompleted||0;
-      const lvl=d.level||1,curXP=d.currentXP||0,maxXP=xpForLevel(lvl),pct=maxXP>0?Math.min((curXP/maxXP)*100,100):0;
-      document.getElementById('profile-total-xp').textContent=(d.totalXP||0)+' XP totales';
-      document.getElementById('profile-lvl-current').textContent='Nv. '+lvl;
-      document.getElementById('profile-lvl-next').textContent='Nv. '+(lvl+1);
-      document.getElementById('profile-xp-fill').style.width=pct+'%';
-      document.getElementById('profile-xp-progress').textContent=curXP+' / '+maxXP+' XP';
-    }
-    function openSettingsPanel(){document.getElementById('settings-overlay').classList.add('open');document.getElementById('settings-panel').classList.add('open');closeAllEditPanels();if(currentUserData){document.getElementById('set-name-sub').textContent=currentUserData.name||'–';document.getElementById('set-username-sub').textContent=currentUserData.username?'@'+currentUserData.username:'–';selectedAvatarIndex=currentUserData.avatar||0;buildAvatarGrid();}}
-    function closeSettingsPanel(){document.getElementById('settings-overlay').classList.remove('open');document.getElementById('settings-panel').classList.remove('open');}
-    document.getElementById('settings-close').addEventListener('click',closeSettingsPanel);
-    document.getElementById('settings-overlay').addEventListener('click',closeSettingsPanel);
-    function closeAllEditPanels(){document.querySelectorAll('.edit-panel').forEach(p=>p.classList.remove('open'));}
-    document.getElementById('set-name-btn').addEventListener('click',()=>{closeAllEditPanels();document.getElementById('edit-name-input').value=currentUserData?.name||'';document.getElementById('edit-name-panel').classList.add('open');document.getElementById('edit-name-msg').textContent='';});
-    document.getElementById('set-username-btn').addEventListener('click',()=>{closeAllEditPanels();document.getElementById('edit-username-input').value=currentUserData?.username||'';document.getElementById('edit-username-panel').classList.add('open');document.getElementById('edit-username-msg').textContent='';});
-    document.getElementById('set-avatar-btn').addEventListener('click',()=>{closeAllEditPanels();document.getElementById('edit-avatar-panel').classList.add('open');document.getElementById('edit-avatar-msg').textContent='';});
-    function buildAvatarGrid(){const grid=document.getElementById('avatar-grid');grid.innerHTML='';AVATARS.forEach((emoji,i)=>{const el=document.createElement('div');el.className='avatar-option'+(i===selectedAvatarIndex?' selected':'');el.textContent=emoji;el.addEventListener('click',()=>{selectedAvatarIndex=i;grid.querySelectorAll('.avatar-option').forEach((o,j)=>o.classList.toggle('selected',j===i));});grid.appendChild(el);});}
-    document.getElementById('edit-name-save').addEventListener('click',async()=>{const val=document.getElementById('edit-name-input').value.trim(),msg=document.getElementById('edit-name-msg');if(!val){msg.textContent='El nombre no puede estar vacío.';msg.className='edit-msg err';return;}const btn=document.getElementById('edit-name-save');btn.disabled=true;btn.textContent='Guardando...';try{await updateDoc(doc(db,'users',auth.currentUser.uid),{name:val});currentUserData.name=val;document.getElementById('set-name-sub').textContent=val;navUserName.textContent=val;msg.textContent='✓ Nombre actualizado';msg.className='edit-msg ok';}catch(e){msg.textContent='Error al guardar.';msg.className='edit-msg err';}btn.disabled=false;btn.textContent='Guardar nombre';});
-    document.getElementById('edit-username-save').addEventListener('click',async()=>{const val=document.getElementById('edit-username-input').value.trim().toLowerCase().replace(/[^a-z0-9_]/g,''),msg=document.getElementById('edit-username-msg');if(!val||val.length<3){msg.textContent='Mínimo 3 caracteres.';msg.className='edit-msg err';return;}const btn=document.getElementById('edit-username-save');btn.disabled=true;btn.textContent='Guardando...';try{await updateDoc(doc(db,'users',auth.currentUser.uid),{username:val,usernameLower:val});currentUserData.username=val;document.getElementById('set-username-sub').textContent='@'+val;navUserHandle.textContent='@'+val;msg.textContent='✓ Username actualizado';msg.className='edit-msg ok';}catch(e){msg.textContent='Error al guardar.';msg.className='edit-msg err';}btn.disabled=false;btn.textContent='Guardar username';});
-    document.getElementById('edit-avatar-save').addEventListener('click',async()=>{const msg=document.getElementById('edit-avatar-msg'),btn=document.getElementById('edit-avatar-save');btn.disabled=true;btn.textContent='Guardando...';try{await updateDoc(doc(db,'users',auth.currentUser.uid),{avatar:selectedAvatarIndex});currentUserData.avatar=selectedAvatarIndex;navUserEmoji.textContent=AVATARS[selectedAvatarIndex];msg.textContent='✓ Avatar actualizado';msg.className='edit-msg ok';}catch(e){msg.textContent='Error al guardar.';msg.className='edit-msg err';}btn.disabled=false;btn.textContent='Guardar avatar';});
-    onAuthStateChanged(auth,async(user)=>{if(user){navCta.style.display='none';navUser.classList.add('visible');authOverlay.classList.remove('open');try{const snap=await getDoc(doc(db,'users',user.uid));if(snap.exists()){currentUserData=snap.data();navUserEmoji.textContent=AVATARS[Math.min(currentUserData.avatar||0,AVATARS.length-1)];navUserName.textContent=currentUserData.name||currentUserData.username||user.email.split('@')[0];navUserHandle.textContent=currentUserData.username?'@'+currentUserData.username:'';}else{navUserEmoji.textContent='⚡';navUserName.textContent=user.displayName||user.email.split('@')[0];}}catch(e){navUserName.textContent=user.displayName||user.email.split('@')[0];}}else{navCta.style.display='';navUser.classList.remove('visible');currentUserData=null;}});
-    loginForm.addEventListener('submit',async(e)=>{e.preventDefault();authError.textContent='';const btn=loginForm.querySelector('.auth-btn-submit');btn.disabled=true;btn.textContent='Entrando...';try{await signInWithEmailAndPassword(auth,document.getElementById('login-email').value,document.getElementById('login-password').value);}catch(err){authError.textContent=traducirError(err.code);btn.disabled=false;btn.textContent='Iniciar sesión';}});
-    registerForm.addEventListener('submit',async(e)=>{e.preventDefault();authError.textContent='';const btn=registerForm.querySelector('.auth-btn-submit');btn.disabled=true;btn.textContent='Creando cuenta...';const name=document.getElementById('register-name').value.trim(),email=document.getElementById('register-email').value,pass=document.getElementById('register-password').value;if(pass.length<6){authError.textContent='La contrasena debe tener al menos 6 caracteres.';btn.disabled=false;btn.textContent='Crear cuenta';return;}try{const cred=await createUserWithEmailAndPassword(auth,email,pass);if(name)await updateProfile(cred.user,{displayName:name});}catch(err){authError.textContent=traducirError(err.code);btn.disabled=false;btn.textContent='Crear cuenta';}});
-    ['btn-google-login','btn-google-register'].forEach(id=>{document.getElementById(id).addEventListener('click',async()=>{authError.textContent='';try{await signInWithPopup(auth,provider);}catch(err){if(err.code!=='auth/popup-closed-by-user')authError.textContent=traducirError(err.code);}});});
-    document.addEventListener('keydown',(e)=>{if(e.key==='Escape'){authOverlay.classList.remove('open');closeProfilePanel();closeSettingsPanel();navDropdown.classList.remove('open');}});
-    function traducirError(code){const map={'auth/user-not-found':'No existe una cuenta con ese email.','auth/wrong-password':'Contrasena incorrecta.','auth/invalid-credential':'Email o contrasena incorrectos.','auth/email-already-in-use':'Ya existe una cuenta con ese email.','auth/weak-password':'La contrasena debe tener al menos 6 caracteres.','auth/invalid-email':'El email no es valido.','auth/too-many-requests':'Demasiados intentos. Espera un momento.','auth/network-request-failed':'Error de conexion. Revisa tu internet.'};return map[code]||'Ha ocurrido un error. Intentalo de nuevo.';}
+    const app = initializeApp({ apiKey: "AIzaSyA_XCqGwo1eXEA5soSc6QTYgy9A6jNz-Gk", authDomain: "fitquest-48c1b.firebaseapp.com", projectId: "fitquest-48c1b", storageBucket: "fitquest-48c1b.firebasestorage.app", messagingSenderId: "328306509996", appId: "1:328306509996:web:0ad19ec3803acac6ddb709" });
+    const auth = getAuth(app), db = getFirestore(app), provider = new GoogleAuthProvider();
+    const AVATARS = ['⚔️', '🥷', '🦁', '🐉', '🔥', '⚡', '🌟', '💎'], XP_TABLE = [0, 500, 1000, 2000, 3500, 5500, 8000, 11000, 15000, 20000, 26000];
+    function xpForLevel(l) { return l < XP_TABLE.length ? XP_TABLE[l] : l * 3000; }
+    let userData = null, selAvatar = 0;
+    const authOverlay = document.getElementById('auth-modal-overlay'), navCta = document.querySelector('.nav-cta'), navUser = document.getElementById('nav-user'), navEmoji = document.getElementById('nav-user-emoji'), navName = document.getElementById('nav-user-name'), navHandle = document.getElementById('nav-user-handle'), navDD = document.getElementById('nav-dropdown'), loginForm = document.getElementById('login-form'), regForm = document.getElementById('register-form'), authErr = document.getElementById('auth-error');
+    document.getElementById('btn-open-auth').addEventListener('click', e => { e.preventDefault(); authOverlay.classList.add('open'); });
+    document.getElementById('auth-modal-close').addEventListener('click', () => authOverlay.classList.remove('open'));
+    authOverlay.addEventListener('click', e => { if (e.target === authOverlay) authOverlay.classList.remove('open'); });
+    document.getElementById('tab-login').addEventListener('click', () => { document.getElementById('tab-login').classList.add('active'); document.getElementById('tab-register').classList.remove('active'); loginForm.classList.remove('hidden'); regForm.classList.add('hidden'); authErr.textContent = ''; });
+    document.getElementById('tab-register').addEventListener('click', () => { document.getElementById('tab-register').classList.add('active'); document.getElementById('tab-login').classList.remove('active'); regForm.classList.remove('hidden'); loginForm.classList.add('hidden'); authErr.textContent = ''; });
+    document.getElementById('nav-user-btn').addEventListener('click', e => { e.stopPropagation(); navDD.classList.toggle('open'); });
+    document.addEventListener('click', () => navDD.classList.remove('open'));
+    document.getElementById('dd-profile').addEventListener('click', () => { navDD.classList.remove('open'); window.location.href = 'perfil.html'; });
+    document.getElementById('dd-settings').addEventListener('click', () => { navDD.classList.remove('open'); window.location.href = 'ajustes.html'; });
+    document.getElementById('dd-logout').addEventListener('click', () => { navDD.classList.remove('open'); signOut(auth); });
+    onAuthStateChanged(auth, async user => { if (user) { navCta.style.display = 'none'; navUser.classList.add('visible'); authOverlay.classList.remove('open'); try { const s = await getDoc(doc(db, 'users', user.uid)); if (s.exists()) { userData = s.data(); navEmoji.textContent = AVATARS[Math.min(userData.avatar || 0, 7)]; navName.textContent = userData.name || userData.username || user.email.split('@')[0]; navHandle.textContent = userData.username ? '@' + userData.username : ''; } else { navEmoji.textContent = '⚡'; navName.textContent = user.displayName || user.email.split('@')[0]; } } catch (e) { navName.textContent = user.displayName || user.email.split('@')[0]; } } else { navCta.style.display = ''; navUser.classList.remove('visible'); userData = null; } });
+    loginForm.addEventListener('submit', async e => { e.preventDefault(); authErr.textContent = ''; const btn = loginForm.querySelector('.auth-btn-submit'); btn.disabled = true; btn.textContent = 'Entrando...'; try { await signInWithEmailAndPassword(auth, document.getElementById('login-email').value, document.getElementById('login-password').value); } catch (err) { authErr.textContent = trad(err.code); btn.disabled = false; btn.textContent = 'Iniciar sesión'; } });
+    regForm.addEventListener('submit', async e => { e.preventDefault(); authErr.textContent = ''; const btn = regForm.querySelector('.auth-btn-submit'); btn.disabled = true; btn.textContent = 'Creando cuenta...'; const name = document.getElementById('register-name').value.trim(), email = document.getElementById('register-email').value, pass = document.getElementById('register-password').value; if (pass.length < 6) { authErr.textContent = 'La contrasena debe tener al menos 6 caracteres.'; btn.disabled = false; btn.textContent = 'Crear cuenta'; return; } try { const cr = await createUserWithEmailAndPassword(auth, email, pass); if (name) await updateProfile(cr.user, { displayName: name }); } catch (err) { authErr.textContent = trad(err.code); btn.disabled = false; btn.textContent = 'Crear cuenta'; } });
+    ['btn-google-login', 'btn-google-register'].forEach(id => { document.getElementById(id).addEventListener('click', async () => { authErr.textContent = ''; try { await signInWithPopup(auth, provider); } catch (err) { if (err.code !== 'auth/popup-closed-by-user') authErr.textContent = trad(err.code); } }); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') { authOverlay.classList.remove('open'); navDD.classList.remove('open'); } });
+    function trad(c) { const m = { 'auth/user-not-found': 'No existe una cuenta con ese email.', 'auth/wrong-password': 'Contrasena incorrecta.', 'auth/invalid-credential': 'Email o contrasena incorrectos.', 'auth/email-already-in-use': 'Ya existe una cuenta con ese email.', 'auth/weak-password': 'La contrasena debe tener al menos 6 caracteres.', 'auth/invalid-email': 'El email no es valido.', 'auth/too-many-requests': 'Demasiados intentos. Espera un momento.', 'auth/network-request-failed': 'Error de conexion. Revisa tu internet.' }; return m[c] || 'Ha ocurrido un error. Intentalo de nuevo.'; }
   </script>
 </head>
+
 <body>
 
-<canvas id="particles"></canvas>
+  <canvas id="particles"></canvas>
 
-<!-- NAV -->
-<nav>
-  <a href="#" class="nav-logo">⚔️ Fit<span>Legend</span></a>
-  <ul class="nav-links">
-    <li><a href="#features">Features</a></li>
-    <li><a href="#screenshots">App</a></li>
-    <li><a href="#testimonios">Usuarios</a></li>
-  </ul>
-  <a href="#" class="nav-cta" id="btn-open-auth">Iniciar sesión</a>
-  <div class="nav-user" id="nav-user">
-    <button class="nav-user-btn" id="nav-user-btn">
-      <div class="nav-user-emoji" id="nav-user-emoji">⚡</div>
-      <div class="nav-user-info">
-        <span class="nav-user-name" id="nav-user-name">–</span>
-        <span class="nav-user-handle" id="nav-user-handle"></span>
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">⚔️ Fit<span>Legend</span></a>
+    <ul class="nav-links">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#screenshots">App</a></li>
+      <li><a href="#testimonios">Usuarios</a></li>
+    </ul>
+    <a href="#" class="nav-cta" id="btn-open-auth">Iniciar sesión</a>
+    <div class="nav-user" id="nav-user">
+      <button class="nav-user-btn" id="nav-user-btn">
+        <div class="nav-user-emoji" id="nav-user-emoji">⚡</div>
+        <div class="nav-user-info">
+          <span class="nav-user-name" id="nav-user-name">–</span>
+          <span class="nav-user-handle" id="nav-user-handle"></span>
+        </div>
+      </button>
+      <div class="nav-dropdown" id="nav-dropdown">
+        <button class="nav-dropdown-item" id="dd-profile">👤 Mi perfil</button>
+        <button class="nav-dropdown-item" id="dd-settings">⚙️ Ajustes</button>
+        <div class="nav-dropdown-divider"></div>
+        <button class="nav-dropdown-item danger" id="dd-logout">🚪 Cerrar sesión</button>
       </div>
-    </button>
-    <div class="nav-dropdown" id="nav-dropdown">
-      <button class="nav-dropdown-item" id="dd-profile">👤 Mi perfil</button>
-      <button class="nav-dropdown-item" id="dd-settings">⚙️ Ajustes</button>
-      <div class="nav-dropdown-divider"></div>
-      <button class="nav-dropdown-item danger" id="dd-logout">🚪 Cerrar sesión</button>
     </div>
-  </div>
-</nav>
+  </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-badge">Disponible en Google Play</div>
-  <h1>
-    <span class="dim">CONVIÉRTETE EN</span><br>
-    UNA <span class="accent">LEYENDA</span><br>
-    <span class="dim">DEL FITNESS</span>
-  </h1>
-  <p class="hero-sub">Gamifica tu entrenamiento. Gana XP, sube de nivel, compite en el ranking y lleva tu fitness al siguiente nivel.</p>
-  <div class="hero-actions">
-    <a href="https://play.google.com/store/apps/details?id=com.impapps.fitlegend" class="btn-primary" target="_blank">▶ Google Play</a>
-    <a href="#screenshots" class="btn-ghost">Ver la app →</a>
-  </div>
-</section>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-badge">Disponible en Google Play</div>
+    <h1>
+      <span class="dim">CONVIÉRTETE EN</span><br>
+      UNA <span class="accent">LEYENDA</span><br>
+      <span class="dim">DEL FITNESS</span>
+    </h1>
+    <p class="hero-sub">Gamifica tu entrenamiento. Gana XP, sube de nivel, compite en el ranking y lleva tu fitness al
+      siguiente nivel.</p>
+    <div class="hero-actions">
+      <a href="https://play.google.com/store/apps/details?id=com.impapps.fitlegend" class="btn-primary"
+        target="_blank">▶ Google Play</a>
+      <a href="#screenshots" class="btn-ghost">Ver la app →</a>
+    </div>
+  </section>
 
-<!-- PHONE STRIP -->
-<div class="phones-strip">
-  <div class="phones-track">
-    <div class="phone-wrap side">
-      <div class="phone-frame">
-        <img src="imgs/coach_blanco.jpg">
-        <div class="phone-glow"></div>
+  <!-- PHONE STRIP -->
+  <div class="phones-strip">
+    <div class="phones-track">
+      <div class="phone-wrap side">
+        <div class="phone-frame">
+          <img src="imgs/coach_blanco.jpg">
+          <div class="phone-glow"></div>
+        </div>
+        <span class="phone-label">IA Coach</span>
       </div>
-      <span class="phone-label">IA Coach</span>
-    </div>
-    <div class="phone-wrap">
-      <div class="phone-frame">
-        <img src="imgs/rutinas_blanco.jpg">
-        <div class="phone-glow"></div>
+      <div class="phone-wrap">
+        <div class="phone-frame">
+          <img src="imgs/rutinas_blanco.jpg">
+          <div class="phone-glow"></div>
+        </div>
+        <span class="phone-label">Rutinas</span>
       </div>
-      <span class="phone-label">Rutinas</span>
-    </div>
-    <div class="phone-wrap center">
-      <div class="phone-frame">
-        <img src="imgs/inicio_negro.jpg">
-        <div class="phone-glow"></div>
+      <div class="phone-wrap center">
+        <div class="phone-frame">
+          <img src="imgs/inicio_negro.jpg">
+          <div class="phone-glow"></div>
+        </div>
+        <span class="phone-label">Inicio</span>
       </div>
-      <span class="phone-label">Inicio</span>
-    </div>
-    <div class="phone-wrap">
-      <div class="phone-frame">
-        <img src="imgs/ranking_blanco.jpg">
-        <div class="phone-glow"></div>
+      <div class="phone-wrap">
+        <div class="phone-frame">
+          <img src="imgs/ranking_blanco.jpg">
+          <div class="phone-glow"></div>
+        </div>
+        <span class="phone-label">Ranking</span>
       </div>
-      <span class="phone-label">Ranking</span>
-    </div>
-    <div class="phone-wrap side">
-      <div class="phone-frame">
-        <img src="imgs/perfil_blanco.jpg">        
-        <div class="phone-glow"></div>
-      </div>
-      <span class="phone-label">Perfil</span>
-    </div>
-  </div>
-</div>
-
-<!-- STATS BAR -->
-<div class="stats-bar reveal">
-  <div class="stats-inner">
-    <div class="stat-item">
-      <div class="stat-number" data-target="10">10+</div>
-      <div class="stat-label">Usuarios activos</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number">70+</div>
-      <div class="stat-label">Entrenamientos registrados</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number">85K+</div>
-      <div class="stat-label">Pasos contados</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number">26</div>
-      <div class="stat-label">Idiomas disponibles</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number">4.8★</div>
-      <div class="stat-label">Valoración media</div>
-    </div>
-  </div>
-</div>
-
-<!-- FEATURES -->
-<section class="features" id="features">
-  <div class="reveal">
-    <p class="section-label">¿Qué incluye?</p>
-    <h2 class="section-title">TODO LO QUE<br>NECESITAS</h2>
-  </div>
-  <div class="features-grid">
-    <div class="feature-card featured reveal">
-      <span class="feature-icon">⚡</span>
-      <h3>Gamificación</h3>
-      <p>Sube de nivel, gana XP con cada entrenamiento, desbloquea logros épicos y compite en el ranking global contra otros usuarios.</p>
-    </div>
-    <div class="feature-card reveal">
-      <span class="feature-icon">🤖</span>
-      <h3>IA Coach</h3>
-      <p>Tu entrenador personal con inteligencia artificial disponible 24/7. Genera rutinas personalizadas y responde cualquier pregunta sobre fitness.</p>
-    </div>
-    <div class="feature-card reveal">
-      <span class="feature-icon">👟</span>
-      <h3>Contador de pasos</h3>
-      <p>Sincronización con Health Connect para seguir tu actividad diaria. Establece objetivos y visualiza tu progreso con gráficas detalladas.</p>
-    </div>
-    <div class="feature-card reveal">
-      <span class="feature-icon">🏆</span>
-      <h3>Ranking</h3>
-      <p>Compite semanalmente, mensualmente o en el ranking global. ¿Tienes lo que hace falta para llegar al número 1?</p>
-    </div>
-    <div class="feature-card reveal">
-      <span class="feature-icon">💬</span>
-      <h3>Social</h3>
-      <p>Sigue a otros usuarios, chatea, comparte tus logros y motívate mutuamente. El fitness es mejor en comunidad.</p>
-    </div>
-    <div class="feature-card reveal">
-      <span class="feature-icon">🗺️</span>
-      <h3>Rutas GPS</h3>
-      <p>Registra tus rutas de running, ciclismo y senderismo con Google Maps. Analiza velocidad, distancia y altitud de cada recorrido.</p>
-    </div>
-  </div>
-</section>
-
-<!-- SCREENSHOTS DETAIL -->
-<section class="screenshots" id="screenshots">
-  <div class="reveal">
-    <p class="section-label" style="text-align:center">La app por dentro</p>
-    <h2 class="section-title" style="text-align:center">DISEÑADA PARA<br>GUERREROS</h2>
-  </div>
-
-  <div class="screenshot-showcase reveal" style="margin-top:3rem; flex-direction: row;">
-    <div class="showcase-text">
-      <h3>Tu dashboard épico</h3>
-      <p>Misiones diarias, XP, racha de días, entrenamientos rápidos y acceso al Coach IA. Todo en una pantalla diseñada para que no pierdas el foco.</p>
-    </div>
-    <div class="showcase-phones">
-      <div class="showcase-phone tall">
-        <img src="imgs/inicio2_blanco.jpg">
-      </div>
-      <div class="showcase-phone">
-        <img src="imgs/entrenamientos_negro.jpg">
+      <div class="phone-wrap side">
+        <div class="phone-frame">
+          <img src="imgs/perfil_blanco.jpg">
+          <div class="phone-glow"></div>
+        </div>
+        <span class="phone-label">Perfil</span>
       </div>
     </div>
   </div>
 
-  <div class="screenshot-showcase reveal" style="margin-top:4rem; flex-direction: row-reverse;">
-    <div class="showcase-text">
-      <h3>Compite y conquista</h3>
-      <p>El ranking en tiempo real te sitúa frente a otros guerreros del fitness. Semanal, mensual o global: demuestra quién llega más lejos.</p>
-    </div>
-    <div class="showcase-phones">
-      <div class="showcase-phone">
-        <img src="imgs/ranking_negro.jpg">
+  <!-- STATS BAR -->
+  <div class="stats-bar reveal">
+    <div class="stats-inner">
+      <div class="stat-item">
+        <div class="stat-number" data-target="10">10+</div>
+        <div class="stat-label">Usuarios activos</div>
       </div>
-      <div class="showcase-phone tall">
-        <img src="imgs/racha_blanco.jpg">
+      <div class="stat-item">
+        <div class="stat-number">70+</div>
+        <div class="stat-label">Entrenamientos registrados</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">85K+</div>
+        <div class="stat-label">Pasos contados</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">26</div>
+        <div class="stat-label">Idiomas disponibles</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">4.8★</div>
+        <div class="stat-label">Valoración media</div>
       </div>
     </div>
   </div>
-</section>
 
-<!-- TESTIMONIALS -->
-<section class="testimonials" id="testimonios">
-  <div class="reveal">
-    <p class="section-label">Lo que dicen</p>
-    <h2 class="section-title">LEYENDAS<br>REALES</h2>
-  </div>
-  <div class="testi-grid">
-    <div class="testi-card reveal">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-text">Me enganché desde el primer día. El sistema de XP y misiones hace que entrenar sea adictivo de buena manera.</p>
-      <div class="testi-author">
-        <div class="testi-avatar">A</div>
-        <div>
-          <div class="testi-name">Antonio</div>
-          <div class="testi-meta">Nivel 3 · 2035 XP</div>
+  <!-- FEATURES -->
+  <section class="features" id="features">
+    <div class="reveal">
+      <p class="section-label">¿Qué incluye?</p>
+      <h2 class="section-title">TODO LO QUE<br>NECESITAS</h2>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card featured reveal">
+        <span class="feature-icon">⚡</span>
+        <h3>Gamificación</h3>
+        <p>Sube de nivel, gana XP con cada entrenamiento, desbloquea logros épicos y compite en el ranking global contra
+          otros usuarios.</p>
+      </div>
+      <div class="feature-card reveal">
+        <span class="feature-icon">🤖</span>
+        <h3>IA Coach</h3>
+        <p>Tu entrenador personal con inteligencia artificial disponible 24/7. Genera rutinas personalizadas y responde
+          cualquier pregunta sobre fitness.</p>
+      </div>
+      <div class="feature-card reveal">
+        <span class="feature-icon">👟</span>
+        <h3>Contador de pasos</h3>
+        <p>Sincronización con Health Connect para seguir tu actividad diaria. Establece objetivos y visualiza tu
+          progreso con gráficas detalladas.</p>
+      </div>
+      <div class="feature-card reveal">
+        <span class="feature-icon">🏆</span>
+        <h3>Ranking</h3>
+        <p>Compite semanalmente, mensualmente o en el ranking global. ¿Tienes lo que hace falta para llegar al número 1?
+        </p>
+      </div>
+      <div class="feature-card reveal">
+        <span class="feature-icon">💬</span>
+        <h3>Social</h3>
+        <p>Sigue a otros usuarios, chatea, comparte tus logros y motívate mutuamente. El fitness es mejor en comunidad.
+        </p>
+      </div>
+      <div class="feature-card reveal">
+        <span class="feature-icon">🗺️</span>
+        <h3>Rutas GPS</h3>
+        <p>Registra tus rutas de running, ciclismo y senderismo con Google Maps. Analiza velocidad, distancia y altitud
+          de cada recorrido.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCREENSHOTS DETAIL -->
+  <section class="screenshots" id="screenshots">
+    <div class="reveal">
+      <p class="section-label" style="text-align:center">La app por dentro</p>
+      <h2 class="section-title" style="text-align:center">DISEÑADA PARA<br>GUERREROS</h2>
+    </div>
+
+    <div class="screenshot-showcase reveal" style="margin-top:3rem; flex-direction: row;">
+      <div class="showcase-text">
+        <h3>Tu dashboard épico</h3>
+        <p>Misiones diarias, XP, racha de días, entrenamientos rápidos y acceso al Coach IA. Todo en una pantalla
+          diseñada para que no pierdas el foco.</p>
+      </div>
+      <div class="showcase-phones">
+        <div class="showcase-phone tall">
+          <img src="imgs/inicio2_blanco.jpg">
+        </div>
+        <div class="showcase-phone">
+          <img src="imgs/entrenamientos_negro.jpg">
         </div>
       </div>
     </div>
-    <div class="testi-card reveal">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-text">El Coach IA es lo mejor. Le pregunto cualquier cosa sobre fitness y me da respuestas personalizadas al instante.</p>
-      <div class="testi-author">
-        <div class="testi-avatar">E</div>
-        <div>
-          <div class="testi-name">Espartana</div>
-          <div class="testi-meta">Nivel 2 · 965 XP</div>
+
+    <div class="screenshot-showcase reveal" style="margin-top:4rem; flex-direction: row-reverse;">
+      <div class="showcase-text">
+        <h3>Compite y conquista</h3>
+        <p>El ranking en tiempo real te sitúa frente a otros guerreros del fitness. Semanal, mensual o global: demuestra
+          quién llega más lejos.</p>
+      </div>
+      <div class="showcase-phones">
+        <div class="showcase-phone">
+          <img src="imgs/ranking_negro.jpg">
+        </div>
+        <div class="showcase-phone tall">
+          <img src="imgs/racha_blanco.jpg">
         </div>
       </div>
     </div>
-    <div class="testi-card reveal">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-text">Por fin una app de fitness que no aburre. El ranking me motiva a salir a correr aunque no tenga ganas.</p>
-      <div class="testi-author">
-        <div class="testi-avatar">P</div>
-        <div>
-          <div class="testi-name">Paloma</div>
-          <div class="testi-meta">Nivel 1 · 35 XP</div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials" id="testimonios">
+    <div class="reveal">
+      <p class="section-label">Lo que dicen</p>
+      <h2 class="section-title">LEYENDAS<br>REALES</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">Me enganché desde el primer día. El sistema de XP y misiones hace que entrenar sea
+          adictivo de buena manera.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">A</div>
+          <div>
+            <div class="testi-name">Antonio</div>
+            <div class="testi-meta">Nivel 3 · 2035 XP</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">El Coach IA es lo mejor. Le pregunto cualquier cosa sobre fitness y me da respuestas
+          personalizadas al instante.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">E</div>
+          <div>
+            <div class="testi-name">Espartana</div>
+            <div class="testi-meta">Nivel 2 · 965 XP</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">Por fin una app de fitness que no aburre. El ranking me motiva a salir a correr aunque no
+          tenga ganas.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">P</div>
+          <div>
+            <div class="testi-name">Paloma</div>
+            <div class="testi-meta">Nivel 1 · 35 XP</div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- DOWNLOAD CTA -->
-<section class="download-cta">
-  <h2>EMPIEZA TU<br><span style="color:var(--accent)">LEYENDA</span></h2>
-  <p>Descarga gratis. Entrena. Sube de nivel. Conviértete en una leyenda.</p>
-  <div class="store-buttons">
-    <a href="https://play.google.com/store/apps/details?id=com.impapps.fitlegend" class="store-btn google" target="_blank">
-      ▶ Google Play
-    </a>
-    <span class="store-btn apple">
-      🍎 App Store <span class="soon">Próximamente</span>
-    </span>
-  </div>
-</section>
-
-<!-- LIGHTBOX -->
-<div id="lightbox-overlay" class="lightbox-overlay">
-  <span id="lightbox-close" class="lightbox-close">✕</span>
-  <img id="lightbox-img" src="" alt="Screenshot ampliada" />
-</div>
-
-<!-- AUTH MODAL -->
-<div id="auth-modal-overlay" class="auth-modal-overlay">
-  <div class="auth-modal">
-    <button class="auth-modal-close" id="auth-modal-close">✕</button>
-    <div class="auth-modal-logo">⚔️ Fit<span>Legend</span></div>
-    <p class="auth-modal-subtitle">Tu leyenda empieza aquí</p>
-    <div class="auth-tabs">
-      <button class="auth-tab active" id="tab-login">Iniciar sesión</button>
-      <button class="auth-tab" id="tab-register">Crear cuenta</button>
+  <!-- DOWNLOAD CTA -->
+  <section class="download-cta">
+    <h2>EMPIEZA TU<br><span style="color:var(--accent)">LEYENDA</span></h2>
+    <p>Descarga gratis. Entrena. Sube de nivel. Conviértete en una leyenda.</p>
+    <div class="store-buttons">
+      <a href="https://play.google.com/store/apps/details?id=com.impapps.fitlegend" class="store-btn google"
+        target="_blank">
+        ▶ Google Play
+      </a>
+      <span class="store-btn apple">
+        🍎 App Store <span class="soon">Próximamente</span>
+      </span>
     </div>
-    <form class="auth-form" id="login-form">
-      <input class="auth-input" id="login-email" type="email" placeholder="Email" required />
-      <input class="auth-input" id="login-password" type="password" placeholder="Contraseña" required />
-      <button class="auth-btn-submit" type="submit">Iniciar sesión</button>
-      <div class="auth-divider">o</div>
-      <button class="auth-btn-google" type="button" id="btn-google-login"><svg width="18" height="18" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg> Continuar con Google</button>
-      <p class="auth-error" id="auth-error"></p>
-    </form>
-    <form class="auth-form hidden" id="register-form">
-      <input class="auth-input" id="register-name" type="text" placeholder="Nombre de usuario" required />
-      <input class="auth-input" id="register-email" type="email" placeholder="Email" required />
-      <input class="auth-input" id="register-password" type="password" placeholder="Contraseña (mín. 6 caracteres)" required />
-      <button class="auth-btn-submit" type="submit">Crear cuenta</button>
-      <div class="auth-divider">o</div>
-      <button class="auth-btn-google" type="button" id="btn-google-register"><svg width="18" height="18" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg> Continuar con Google</button>
-    </form>
-  </div>
-</div>
+  </section>
 
-<!-- LIGHTBOX -->
-<div id="lightbox-overlay" class="lightbox-overlay">
-  <span id="lightbox-close" class="lightbox-close">✕</span>
-  <img id="lightbox-img" src="" alt="Screenshot ampliada" />
-</div>
 
-<!-- PROFILE PANEL -->
-<div class="side-panel-overlay" id="profile-overlay"></div>
-<div class="side-panel" id="profile-panel">
-  <div class="side-panel-header"><button class="side-panel-back" id="profile-close">✕</button><span class="side-panel-title">Mi Perfil</span></div>
-  <div class="profile-hero">
-    <div class="profile-avatar-big" id="profile-avatar-big">⚡</div>
-    <div class="profile-username" id="profile-display-name">–</div>
-    <div class="profile-handle" id="profile-display-handle"></div>
-    <div class="profile-badges">
-      <span class="profile-badge streak" id="profile-streak-badge">🔥 0 días</span>
-      <span class="profile-badge gems" id="profile-gems-badge">💎 0 gemas</span>
-      <span class="profile-badge premium" id="profile-premium-badge" style="display:none">⭐ Premium</span>
+
+
+  <!-- AUTH MODAL -->
+  <div id="auth-modal-overlay" class="auth-modal-overlay">
+    <div class="auth-modal">
+      <button class="auth-modal-close" id="auth-modal-close">✕</button>
+      <div class="auth-modal-logo">⚔️ Fit<span>Legend</span></div>
+      <p class="auth-modal-subtitle">Tu leyenda empieza aquí</p>
+      <div class="auth-tabs">
+        <button class="auth-tab active" id="tab-login">Iniciar sesión</button>
+        <button class="auth-tab" id="tab-register">Crear cuenta</button>
+      </div>
+      <form class="auth-form" id="login-form">
+        <input class="auth-input" id="login-email" type="email" placeholder="Email" required />
+        <input class="auth-input" id="login-password" type="password" placeholder="Contraseña" required />
+        <button class="auth-btn-submit" type="submit">Iniciar sesión</button>
+        <div class="auth-divider">o</div>
+        <button class="auth-btn-google" type="button" id="btn-google-login"><svg width="18" height="18"
+            viewBox="0 0 48 48">
+            <path fill="#EA4335"
+              d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z" />
+            <path fill="#4285F4"
+              d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z" />
+            <path fill="#FBBC05"
+              d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z" />
+            <path fill="#34A853"
+              d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z" />
+          </svg> Continuar con Google</button>
+        <p class="auth-error" id="auth-error"></p>
+      </form>
+      <form class="auth-form hidden" id="register-form">
+        <input class="auth-input" id="register-name" type="text" placeholder="Nombre de usuario" required />
+        <input class="auth-input" id="register-email" type="email" placeholder="Email" required />
+        <input class="auth-input" id="register-password" type="password" placeholder="Contraseña (mín. 6 caracteres)"
+          required />
+        <button class="auth-btn-submit" type="submit">Crear cuenta</button>
+        <div class="auth-divider">o</div>
+        <button class="auth-btn-google" type="button" id="btn-google-register"><svg width="18" height="18"
+            viewBox="0 0 48 48">
+            <path fill="#EA4335"
+              d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z" />
+            <path fill="#4285F4"
+              d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z" />
+            <path fill="#FBBC05"
+              d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z" />
+            <path fill="#34A853"
+              d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z" />
+          </svg> Continuar con Google</button>
+      </form>
     </div>
   </div>
-  <div class="profile-xp-bar-wrap">
-    <div class="profile-xp-bar-card">
-      <div class="profile-xp-bar-top"><span class="profile-xp-label">⭐ PROGRESO DE NIVEL</span><span class="profile-xp-total" id="profile-total-xp">0 XP totales</span></div>
-      <div class="profile-xp-levels"><span class="profile-xp-level" id="profile-lvl-current">Nv. 1</span><span class="profile-xp-level" id="profile-lvl-next" style="color:var(--muted)">Nv. 2</span></div>
-      <div class="profile-xp-bar"><div class="profile-xp-bar-fill" id="profile-xp-fill" style="width:0%"></div></div>
-      <div class="profile-xp-progress" id="profile-xp-progress">0 / 500 XP</div>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox-overlay" class="lightbox-overlay">
+    <span id="lightbox-close" class="lightbox-close">✕</span>
+    <img id="lightbox-img" src="" alt="Screenshot ampliada" />
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>© 2026 ImpApps Studio</div>
+    <div class="footer-links">
+      <a href="privacy-policy.html">Política de privacidad</a>
+      <a href="delete-account.html">Eliminar cuenta</a>
+      <a href="/cdn-cgi/l/email-protection#29405a48484a44591d1e1d1e694e44484045074a4644">Contacto</a>
     </div>
-  </div>
-  <div class="profile-stats-grid">
-    <div class="profile-stat-card"><span class="profile-stat-emoji">💪</span><div class="profile-stat-value" id="ps-workouts">0</div><div class="profile-stat-label">Entrenamientos</div></div>
-    <div class="profile-stat-card"><span class="profile-stat-emoji">👟</span><div class="profile-stat-value" id="ps-steps">0</div><div class="profile-stat-label">Pasos de hoy</div></div>
-    <div class="profile-stat-card"><span class="profile-stat-emoji">🔥</span><div class="profile-stat-value" id="ps-calories">0</div><div class="profile-stat-label">Calorías</div></div>
-    <div class="profile-stat-card"><span class="profile-stat-emoji">🎯</span><div class="profile-stat-value" id="ps-missions">0</div><div class="profile-stat-label">Misiones</div></div>
-  </div>
-</div>
+  </footer>
 
-<!-- SETTINGS PANEL -->
-<div class="side-panel-overlay" id="settings-overlay"></div>
-<div class="side-panel" id="settings-panel">
-  <div class="side-panel-header"><button class="side-panel-back" id="settings-close">✕</button><span class="side-panel-title">Ajustes</span></div>
-  <div class="settings-section">
-    <div class="settings-section-title">Perfil</div>
-    <div class="settings-card">
-      <button class="settings-row" id="set-name-btn"><span class="settings-row-emoji">✏️</span><div class="settings-row-text"><div class="settings-row-label">Cambiar nombre</div><div class="settings-row-sub" id="set-name-sub">–</div></div><span class="settings-row-arrow">›</span></button>
-      <button class="settings-row" id="set-username-btn"><span class="settings-row-emoji">@</span><div class="settings-row-text"><div class="settings-row-label">Cambiar username</div><div class="settings-row-sub" id="set-username-sub">–</div></div><span class="settings-row-arrow">›</span></button>
-      <button class="settings-row" id="set-avatar-btn"><span class="settings-row-emoji">🎭</span><div class="settings-row-text"><div class="settings-row-label">Cambiar avatar</div><div class="settings-row-sub">Elige tu icono</div></div><span class="settings-row-arrow">›</span></button>
-    </div>
-  </div>
-  <div class="settings-section edit-panel" id="edit-name-panel">
-    <label class="edit-label">Nuevo nombre</label>
-    <input class="auth-input" id="edit-name-input" type="text" placeholder="Tu nombre" maxlength="30" />
-    <button class="edit-save" id="edit-name-save">Guardar nombre</button>
-    <div class="edit-msg" id="edit-name-msg"></div>
-  </div>
-  <div class="settings-section edit-panel" id="edit-username-panel">
-    <label class="edit-label">Nuevo username</label>
-    <input class="auth-input" id="edit-username-input" type="text" placeholder="tu_username" maxlength="20" />
-    <button class="edit-save" id="edit-username-save">Guardar username</button>
-    <div class="edit-msg" id="edit-username-msg"></div>
-  </div>
-  <div class="settings-section edit-panel" id="edit-avatar-panel">
-    <label class="edit-label">Elige tu avatar</label>
-    <div class="avatar-grid" id="avatar-grid"></div>
-    <button class="edit-save" id="edit-avatar-save">Guardar avatar</button>
-    <div class="edit-msg" id="edit-avatar-msg"></div>
-  </div>
-</div>
-
-<!-- FOOTER -->
-<footer>
-  <div>© 2026 ImpApps Studio</div>
-  <div class="footer-links">
-    <a href="privacy-policy.html">Política de privacidad</a>
-    <a href="delete-account.html">Eliminar cuenta</a>
-    <a href="/cdn-cgi/l/email-protection#29405a48484a44591d1e1d1e694e44484045074a4644">Contacto</a>
-  </div>
-</footer>
-
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
-  const canvas=document.getElementById('particles'), ctx=canvas.getContext('2d'); 
-  let W,H,particles=[];
-  function resize() {
-    W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;
-  }
-  window.addEventListener('resize',resize);
-  resize();
-  class Particle {
-    constructor() {
-      this.reset();
-    }
-    reset() {
-      this.x=Math.random()*W;this.y=Math.random()*H;
-      this.vx=(Math.random()-.5)*.4;
-      this.vy=(Math.random()-.5)*.4;
-      this.r=Math.random()*1.5+.5;
-      this.alpha=Math.random()*.5+.1;
-      this.color=Math.random()>.7?'#00F5A0':'#1a4a3a';
-    }
-    update() {
-      this.x+=this.vx;
-      this.y+=this.vy;
-      if (this.x<0||this.x>W||this.y<0||this.y>H)
-        this.reset();
-      }
-      draw() {
-        ctx.beginPath();
-        ctx.arc(this.x,this.y,this.r,0,Math.PI*2);
-        ctx.fillStyle=this.color;
-        ctx.globalAlpha=this.alpha;
-        ctx.fill();
-      }
-    }
-  for (let i=0;i<120;i++) particles.push(new Particle());
-  function drawConnections() {
-    for (let i=0;i<particles.length;i++) {
-      for (let j=i+1;j<particles.length;j++) {
-        const dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y,dist=Math.sqrt(dx*dx+dy*dy);
-        if (dist<100) {
-          ctx.beginPath();
-          ctx.moveTo(particles[i].x,particles[i].y);
-          ctx.lineTo(particles[j].x,particles[j].y);
-          ctx.strokeStyle='#00F5A0';
-          ctx.globalAlpha=(1-dist/100)*.06;
-          ctx.lineWidth=.5;ctx.stroke();
-        }
-      }
-    }
-  }
-  function animate() {
-    ctx.clearRect(0,0,W,H);
-    particles.forEach(p=> {
-      p.update();
-      p.draw();
-    }
-  );
-  drawConnections();
-  ctx.globalAlpha=1;
-  requestAnimationFrame(animate);
-} animate();
-  const reveals=document.querySelectorAll('.reveal');
-  const observer=new IntersectionObserver((entries)=> {
-    entries.forEach((e)=> {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-      }
-      else {
-        e.target.classList.remove('visible');
-      }
-    });
-  }, {
-    threshold:.1
-  });
-  reveals.forEach(r=>observer.observe(r));
-  const overlay=document.getElementById('lightbox-overlay'),lightboxImg=document.getElementById('lightbox-img');
-  document.querySelectorAll('.phone-frame img, .showcase-phone img').forEach(img=> {
-    img.addEventListener('click',(e)=> {
-      e.stopPropagation();
-      lightboxImg.src=img.src;
-      overlay.classList.add('open');
-    });
-  });
-  overlay.addEventListener('click',()=>overlay.classList.remove('open'));
-  document.getElementById('lightbox-close').addEventListener('click',()=>overlay.classList.remove('open'));
-  lightboxImg.addEventListener('click',(e)=>e.stopPropagation());
-  function fixShowcase(){document.querySelectorAll('.screenshot-showcase').forEach(s=> {
-    if(window.innerWidth<768) {
-      s.style.flexDirection='column';
-    }
-    else {
-      s.style.flexDirection=s.dataset.dir||s.getAttribute('style')?.match(/flex-direction:\s*([^;]+)/)?.[1]||'row';
-    }
-  });}
-  window.addEventListener('resize',fixShowcase);fixShowcase();
-  function centerPhoneStrip(){if(window.innerWidth<=768) {
-    const strip=document.querySelector('.phones-strip'),center=document.querySelector('.phone-wrap.center');
-    if(strip&&center){strip.scrollLeft=center.offsetLeft-(strip.clientWidth/2)+(center.offsetWidth/2);}}}
-  window.addEventListener('load',centerPhoneStrip);window.addEventListener('resize',centerPhoneStrip);
-</script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script>
+    const canvas = document.getElementById('particles'), ctx = canvas.getContext('2d'); let W, H, particles = [];
+    function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+    window.addEventListener('resize', resize); resize();
+    class Particle { constructor() { this.reset(); } reset() { this.x = Math.random() * W; this.y = Math.random() * H; this.vx = (Math.random() - .5) * .4; this.vy = (Math.random() - .5) * .4; this.r = Math.random() * 1.5 + .5; this.alpha = Math.random() * .5 + .1; this.color = Math.random() > .7 ? '#00F5A0' : '#1a4a3a'; } update() { this.x += this.vx; this.y += this.vy; if (this.x < 0 || this.x > W || this.y < 0 || this.y > H) this.reset(); } draw() { ctx.beginPath(); ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2); ctx.fillStyle = this.color; ctx.globalAlpha = this.alpha; ctx.fill(); } }
+    for (let i = 0; i < 120; i++)particles.push(new Particle());
+    function drawConnections() { for (let i = 0; i < particles.length; i++) { for (let j = i + 1; j < particles.length; j++) { const dx = particles[i].x - particles[j].x, dy = particles[i].y - particles[j].y, dist = Math.sqrt(dx * dx + dy * dy); if (dist < 100) { ctx.beginPath(); ctx.moveTo(particles[i].x, particles[i].y); ctx.lineTo(particles[j].x, particles[j].y); ctx.strokeStyle = '#00F5A0'; ctx.globalAlpha = (1 - dist / 100) * .06; ctx.lineWidth = .5; ctx.stroke(); } } } }
+    function animate() { ctx.clearRect(0, 0, W, H); particles.forEach(p => { p.update(); p.draw(); }); drawConnections(); ctx.globalAlpha = 1; requestAnimationFrame(animate); }
+    animate();
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); else e.target.classList.remove('visible'); }); }, { threshold: .1 });
+    reveals.forEach(r => observer.observe(r));
+    const overlay = document.getElementById('lightbox-overlay'), lightboxImg = document.getElementById('lightbox-img');
+    document.querySelectorAll('.phone-frame img, .showcase-phone img').forEach(img => { img.addEventListener('click', e => { e.stopPropagation(); lightboxImg.src = img.src; overlay.classList.add('open'); }); });
+    overlay.addEventListener('click', () => overlay.classList.remove('open'));
+    document.getElementById('lightbox-close').addEventListener('click', () => overlay.classList.remove('open'));
+    lightboxImg.addEventListener('click', e => e.stopPropagation());
+    function fixShowcase() { document.querySelectorAll('.screenshot-showcase').forEach(s => { if (window.innerWidth < 768) { s.style.flexDirection = 'column'; } else { s.style.flexDirection = s.dataset.dir || s.getAttribute('style')?.match(/flex-direction:\s*([^;]+)/)?.[1] || 'row'; } }); }
+    window.addEventListener('resize', fixShowcase); fixShowcase();
+    function centerPhoneStrip() { if (window.innerWidth <= 768) { const strip = document.querySelector('.phones-strip'), center = document.querySelector('.phone-wrap.center'); if (strip && center) { strip.scrollLeft = center.offsetLeft - (strip.clientWidth / 2) + (center.offsetWidth / 2); } } }
+    window.addEventListener('load', centerPhoneStrip); window.addEventListener('resize', centerPhoneStrip);
+  </script>
 </body>
+
 </html>
