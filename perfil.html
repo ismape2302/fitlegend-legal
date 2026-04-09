@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Perfil – FitLegend</title>
+  <link rel="icon" type="image/x-icon" href="imgs/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #050f0f; --bg2: #071515; --card: #0c1f1f; --card2: #0f2525;
+      --accent: #00F5A0; --accent-glow: rgba(0,245,160,0.18); --accent-glow2: rgba(0,245,160,0.06);
+      --gold: #FFD700; --text: #f0faf5; --muted: #6b9e8a; --border: rgba(0,245,160,0.12);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: 'Outfit', sans-serif; min-height: 100vh; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1rem 2.5rem; background: rgba(5,15,15,0.7); backdrop-filter: blur(18px); border-bottom: 1px solid var(--border); }
+    .nav-logo { display: flex; align-items: center; gap: .6rem; font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: .08em; color: var(--accent); text-decoration: none; }
+    .nav-logo span { color: var(--text); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: .9rem; font-weight: 500; transition: color .25s; }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-cta { background: var(--accent); color: #050f0f; font-weight: 700; font-size: .88rem; padding: .5rem 1.3rem; border-radius: 100px; text-decoration: none; transition: transform .2s, box-shadow .2s; }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 0 20px var(--accent-glow); }
+    .nav-user { display: none; align-items: center; gap: .6rem; position: relative; }
+    .nav-user.visible { display: flex; }
+    .nav-user-btn { display: flex; align-items: center; gap: .6rem; cursor: pointer; background: none; border: none; padding: 0; }
+    .nav-user-emoji { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), #007a50); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; border: 2px solid rgba(0,245,160,.3); }
+    .nav-user-info { text-align: left; }
+    .nav-user-name { font-size: .88rem; font-weight: 600; color: var(--text); max-width: 120px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: block; }
+    .nav-user-handle { font-size: .72rem; color: var(--muted); display: block; }
+    .nav-dropdown { display: none; position: absolute; top: calc(100% + .8rem); right: 0; min-width: 200px; background: var(--card); border: 1px solid var(--border); border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,.5); overflow: hidden; animation: fadeUp .2s ease both; z-index: 300; }
+    .nav-dropdown.open { display: block; }
+    .nav-dropdown-item { display: flex; align-items: center; gap: .8rem; padding: .85rem 1.2rem; color: var(--text); font-size: .9rem; font-weight: 500; cursor: pointer; transition: background .2s; border: none; background: none; width: 100%; text-align: left; font-family: 'Outfit', sans-serif; }
+    .nav-dropdown-item:hover { background: rgba(0,245,160,.06); }
+    .nav-dropdown-item.danger { color: #ff6b6b; }
+    .nav-dropdown-item.danger:hover { background: rgba(255,107,107,.06); }
+    .nav-dropdown-divider { height: 1px; background: var(--border); margin: .3rem 0; }
+
+    /* PAGE */
+    .page { padding: 7rem 2rem 4rem; max-width: 800px; margin: 0 auto; }
+
+    /* PROFILE HERO */
+    .profile-hero { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 2rem 0 2.5rem; }
+    .profile-avatar-big { width: 100px; height: 100px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), #007a50); display: flex; align-items: center; justify-content: center; font-size: 2.8rem; margin-bottom: 1.2rem; border: 3px solid rgba(0,245,160,.3); box-shadow: 0 0 30px rgba(0,245,160,.15); }
+    .profile-name { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; letter-spacing: .06em; }
+    .profile-handle { color: var(--muted); font-size: .9rem; margin-top: .3rem; }
+    .profile-badges { display: flex; gap: .6rem; margin-top: 1rem; flex-wrap: wrap; justify-content: center; }
+    .profile-badge { padding: .35rem .9rem; border-radius: 100px; font-size: .78rem; font-weight: 700; border: 1px solid; }
+    .profile-badge.streak { color: #ff6b35; border-color: rgba(255,107,53,.3); background: rgba(255,107,53,.1); }
+    .profile-badge.gems { color: #00c8ff; border-color: rgba(0,200,255,.3); background: rgba(0,200,255,.1); }
+    .profile-badge.premium { color: var(--gold); border-color: rgba(255,215,0,.3); background: rgba(255,215,0,.1); }
+
+    /* XP CARD */
+    .xp-card { background: var(--card); border: 1px solid rgba(255,215,0,.2); border-radius: 20px; padding: 1.5rem; margin-bottom: 1.5rem; }
+    .xp-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+    .xp-label { color: var(--muted); font-size: .8rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+    .xp-total { color: var(--gold); font-size: .85rem; font-weight: 700; }
+    .xp-levels { display: flex; justify-content: space-between; margin-bottom: .6rem; }
+    .xp-level { font-weight: 700; font-size: 1rem; }
+    .xp-bar { height: 10px; background: var(--border); border-radius: 5px; overflow: hidden; }
+    .xp-bar-fill { height: 100%; background: linear-gradient(90deg, var(--gold), #ffaa00); border-radius: 5px; transition: width 1s ease; }
+    .xp-progress { color: var(--muted); font-size: .78rem; margin-top: .5rem; text-align: right; }
+
+    /* STATS GRID */
+    .section-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: .12em; color: var(--muted); text-transform: uppercase; margin-bottom: 1rem; }
+    .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 1.5rem; }
+    .stat-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1.2rem; transition: border-color .3s, transform .3s; }
+    .stat-card:hover { border-color: rgba(0,245,160,.3); transform: translateY(-2px); }
+    .stat-emoji { font-size: 1.6rem; margin-bottom: .5rem; display: block; }
+    .stat-value { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: .04em; color: var(--accent); line-height: 1; }
+    .stat-label { color: var(--muted); font-size: .78rem; font-weight: 600; margin-top: .3rem; text-transform: uppercase; letter-spacing: .06em; }
+
+    /* ACHIEVEMENTS */
+    .achievements-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+    .achievement-item { display: flex; flex-direction: column; align-items: center; text-align: center; }
+    .achievement-circle { width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin-bottom: .5rem; border: 2px solid; transition: transform .3s; }
+    .achievement-circle:hover { transform: scale(1.1); }
+    .achievement-circle.unlocked { background: rgba(0,245,160,.1); border-color: rgba(0,245,160,.4); }
+    .achievement-circle.locked { background: var(--card2); border-color: var(--border); filter: grayscale(1); opacity: .5; }
+    .achievement-name { font-size: .75rem; font-weight: 600; color: var(--text); }
+    .achievement-name.locked { color: var(--muted); }
+
+    /* NOT LOGGED */
+    .not-logged { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 60vh; text-align: center; gap: 1rem; }
+    .not-logged h2 { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; letter-spacing: .06em; }
+    .not-logged p { color: var(--muted); max-width: 360px; line-height: 1.6; }
+    .btn-login { background: var(--accent); color: #050f0f; font-weight: 700; font-size: 1rem; padding: .85rem 2rem; border-radius: 100px; border: none; cursor: pointer; font-family: 'Outfit', sans-serif; transition: transform .2s, box-shadow .2s; }
+    .btn-login:hover { transform: translateY(-2px); box-shadow: 0 0 24px rgba(0,245,160,.35); }
+
+    /* LOADING */
+    .loading { display: flex; align-items: center; justify-content: center; min-height: 60vh; }
+    .spinner { width: 40px; height: 40px; border: 3px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin .8s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-in { animation: fadeUp .5s ease both; }
+
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .achievements-grid { grid-template-columns: repeat(4, 1fr); }
+      .page { padding: 6rem 1.2rem 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">⚔️ Fit<span>Legend</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html#features">Features</a></li>
+    <li><a href="index.html#screenshots">App</a></li>
+    <li><a href="index.html#testimonios">Usuarios</a></li>
+  </ul>
+  <a href="#" class="nav-cta" id="btn-open-auth">Iniciar sesión</a>
+  <div class="nav-user" id="nav-user">
+    <button class="nav-user-btn" id="nav-user-btn">
+      <div class="nav-user-emoji" id="nav-user-emoji">⚡</div>
+      <div class="nav-user-info">
+        <span class="nav-user-name" id="nav-user-name">–</span>
+        <span class="nav-user-handle" id="nav-user-handle"></span>
+      </div>
+    </button>
+    <div class="nav-dropdown" id="nav-dropdown">
+      <button class="nav-dropdown-item" onclick="window.location.href='perfil.html'">👤 Mi perfil</button>
+      <button class="nav-dropdown-item" onclick="window.location.href='ajustes.html'">⚙️ Ajustes</button>
+      <div class="nav-dropdown-divider"></div>
+      <button class="nav-dropdown-item danger" id="dd-logout">🚪 Cerrar sesión</button>
+    </div>
+  </div>
+</nav>
+
+<div class="page" id="page-content">
+  <div class="loading" id="loading"><div class="spinner"></div></div>
+  <div id="not-logged" style="display:none" class="not-logged">
+    <div style="font-size:3rem">⚔️</div>
+    <h2>INICIA SESIÓN</h2>
+    <p>Necesitas una cuenta para ver tu perfil. Únete a la leyenda.</p>
+    <button class="btn-login" id="btn-login-page">Iniciar sesión</button>
+  </div>
+  <div id="profile-content" style="display:none" class="fade-in">
+    <div class="profile-hero">
+      <div class="profile-avatar-big" id="p-avatar">⚡</div>
+      <div class="profile-name" id="p-name">–</div>
+      <div class="profile-handle" id="p-handle"></div>
+      <div class="profile-badges">
+        <span class="profile-badge streak" id="p-streak">🔥 0 días</span>
+        <span class="profile-badge gems" id="p-gems">💎 0 gemas</span>
+        <span class="profile-badge premium" id="p-premium" style="display:none">⭐ Premium</span>
+      </div>
+    </div>
+
+    <div class="xp-card">
+      <div class="xp-top">
+        <span class="xp-label">⭐ Progreso de nivel</span>
+        <span class="xp-total" id="p-total-xp">0 XP totales</span>
+      </div>
+      <div class="xp-levels">
+        <span class="xp-level" id="p-lvl-cur">Nv. 1</span>
+        <span class="xp-level" id="p-lvl-next" style="color:var(--muted)">Nv. 2</span>
+      </div>
+      <div class="xp-bar"><div class="xp-bar-fill" id="p-xp-fill" style="width:0%"></div></div>
+      <div class="xp-progress" id="p-xp-prog">0 / 500 XP</div>
+    </div>
+
+    <p class="section-title">📊 Estadísticas</p>
+    <div class="stats-grid">
+      <div class="stat-card"><span class="stat-emoji">💪</span><div class="stat-value" id="p-workouts">0</div><div class="stat-label">Entrenamientos</div></div>
+      <div class="stat-card"><span class="stat-emoji">👟</span><div class="stat-value" id="p-steps">0</div><div class="stat-label">Pasos hoy</div></div>
+      <div class="stat-card"><span class="stat-emoji">🔥</span><div class="stat-value" id="p-calories">0</div><div class="stat-label">Calorías</div></div>
+      <div class="stat-card"><span class="stat-emoji">⏱️</span><div class="stat-value" id="p-minutes">0h</div><div class="stat-label">Tiempo total</div></div>
+      <div class="stat-card"><span class="stat-emoji">🎯</span><div class="stat-value" id="p-missions">0</div><div class="stat-label">Misiones</div></div>
+      <div class="stat-card"><span class="stat-emoji">📏</span><div class="stat-value" id="p-distance">0km</div><div class="stat-label">Distancia</div></div>
+    </div>
+
+    <p class="section-title" style="margin-top:2rem">🏅 Logros</p>
+    <div class="achievements-grid" id="p-achievements"></div>
+  </div>
+</div>
+
+<!-- AUTH MODAL (mini) -->
+<div id="auth-modal-overlay" style="display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.75);backdrop-filter:blur(10px);align-items:center;justify-content:center;">
+  <div style="background:var(--card);border:1px solid rgba(0,245,160,.2);border-radius:24px;padding:2.5rem;width:100%;max-width:420px;margin:1rem;position:relative;box-shadow:0 40px 80px rgba(0,0,0,.6);">
+    <button onclick="document.getElementById('auth-modal-overlay').style.display='none'" style="position:absolute;top:1.2rem;right:1.5rem;color:var(--muted);font-size:1.5rem;cursor:pointer;background:none;border:none;">✕</button>
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:var(--accent);margin-bottom:.3rem;">⚔️ Fit<span style="color:var(--text)">Legend</span></div>
+    <p style="color:var(--muted);font-size:.88rem;margin-bottom:1.5rem;">Tu leyenda empieza aquí</p>
+    <input id="m-email" type="email" placeholder="Email" style="background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:.85rem 1.1rem;color:var(--text);font-family:'Outfit',sans-serif;font-size:.95rem;outline:none;width:100%;margin-bottom:.8rem;" />
+    <input id="m-pass" type="password" placeholder="Contraseña" style="background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:.85rem 1.1rem;color:var(--text);font-family:'Outfit',sans-serif;font-size:.95rem;outline:none;width:100%;margin-bottom:.8rem;" />
+    <button id="m-submit" style="background:var(--accent);color:#050f0f;font-weight:700;font-size:1rem;padding:.9rem;border-radius:100px;border:none;cursor:pointer;font-family:'Outfit',sans-serif;width:100%;">Iniciar sesión</button>
+    <p id="m-error" style="color:#ff6b6b;font-size:.82rem;text-align:center;margin-top:.5rem;min-height:1.2rem;"></p>
+  </div>
+</div>
+
+<script type="module">
+  import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+  import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
+  import { getFirestore, doc, getDoc } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+
+  const app = initializeApp({apiKey:"AIzaSyA_XCqGwo1eXEA5soSc6QTYgy9A6jNz-Gk",authDomain:"fitquest-48c1b.firebaseapp.com",projectId:"fitquest-48c1b",storageBucket:"fitquest-48c1b.firebasestorage.app",messagingSenderId:"328306509996",appId:"1:328306509996:web:0ad19ec3803acac6ddb709"});
+  const auth = getAuth(app), db = getFirestore(app);
+  const AVATARS = ['⚔️','🥷','🦁','🐉','🔥','⚡','🌟','💎'];
+  const XP_TABLE = [0,500,1000,2000,3500,5500,8000,11000,15000,20000,26000];
+  const ACHIEVEMENTS = [
+    {id:'first_workout',emoji:'⚡',name:'Velocista'},{id:'warrior',emoji:'💪',name:'Guerrero'},
+    {id:'on_fire',emoji:'🔥',name:'En Llamas'},{id:'ninja',emoji:'🥷',name:'Ninja'},
+    {id:'champion',emoji:'🏆',name:'Campeón'},{id:'legend',emoji:'🌟',name:'Leyenda'},
+    {id:'elite',emoji:'💎',name:'Élite'},{id:'unstoppable',emoji:'🚀',name:'Imparable'}
+  ];
+
+  function xpForLevel(l){return l<XP_TABLE.length?XP_TABLE[l]:l*3000;}
+
+  const navCta=document.getElementById('nav-cta')||document.querySelector('.nav-cta');
+  const navUser=document.getElementById('nav-user');
+  const navUserEmoji=document.getElementById('nav-user-emoji');
+  const navUserName=document.getElementById('nav-user-name');
+  const navUserHandle=document.getElementById('nav-user-handle');
+  const navDropdown=document.getElementById('nav-dropdown');
+
+  document.getElementById('nav-user-btn').addEventListener('click',(e)=>{e.stopPropagation();navDropdown.classList.toggle('open');});
+  document.addEventListener('click',()=>navDropdown.classList.remove('open'));
+  document.getElementById('dd-logout').addEventListener('click',()=>signOut(auth));
+
+  function openModal(){document.getElementById('auth-modal-overlay').style.display='flex';}
+  document.getElementById('btn-open-auth').addEventListener('click',(e)=>{e.preventDefault();openModal();});
+  const btnLoginPage=document.getElementById('btn-login-page');
+  if(btnLoginPage)btnLoginPage.addEventListener('click',openModal);
+
+  document.getElementById('m-submit').addEventListener('click',async()=>{
+    const email=document.getElementById('m-email').value,pass=document.getElementById('m-pass').value,err=document.getElementById('m-error');
+    try{await signInWithEmailAndPassword(auth,email,pass);}
+    catch(e){err.textContent='Email o contraseña incorrectos.';}
+  });
+
+  onAuthStateChanged(auth, async(user)=>{
+    document.getElementById('loading').style.display='none';
+    if(!user){
+      document.getElementById('not-logged').style.display='flex';
+      document.querySelector('.nav-cta').style.display='';
+      navUser.classList.remove('visible');
+      return;
+    }
+    document.querySelector('.nav-cta').style.display='none';
+    navUser.classList.add('visible');
+    document.getElementById('auth-modal-overlay').style.display='none';
+
+    const snap = await getDoc(doc(db,'users',user.uid));
+    if(!snap.exists()){document.getElementById('not-logged').style.display='flex';return;}
+    const d = snap.data();
+
+    // Nav
+    navUserEmoji.textContent=AVATARS[Math.min(d.avatar||0,AVATARS.length-1)];
+    navUserName.textContent=d.name||d.username||user.email.split('@')[0];
+    navUserHandle.textContent=d.username?'@'+d.username:'';
+
+    // Profile
+    document.getElementById('p-avatar').textContent=AVATARS[Math.min(d.avatar||0,AVATARS.length-1)];
+    document.getElementById('p-name').textContent=d.name||d.username||'–';
+    document.getElementById('p-handle').textContent=d.username?'@'+d.username:'';
+    document.getElementById('p-streak').textContent='🔥 '+(d.streak||0)+' días';
+    document.getElementById('p-gems').textContent='💎 '+(d.gems||0)+' gemas';
+    if(d.isPremium)document.getElementById('p-premium').style.display='inline-block';
+
+    // XP
+    const lvl=d.level||1,curXP=d.currentXP||0,maxXP=xpForLevel(lvl),pct=maxXP>0?Math.min((curXP/maxXP)*100,100):0;
+    document.getElementById('p-total-xp').textContent=(d.totalXP||0)+' XP totales';
+    document.getElementById('p-lvl-cur').textContent='Nv. '+lvl;
+    document.getElementById('p-lvl-next').textContent='Nv. '+(lvl+1);
+    document.getElementById('p-xp-fill').style.width=pct+'%';
+    document.getElementById('p-xp-prog').textContent=curXP+' / '+maxXP+' XP';
+
+    // Stats
+    document.getElementById('p-workouts').textContent=d.progressWorkouts||0;
+    document.getElementById('p-steps').textContent=(d.todaySteps||0).toLocaleString('es');
+    document.getElementById('p-calories').textContent=d.caloriesBurned||0;
+    document.getElementById('p-minutes').textContent=Math.floor((d.totalMinutes||0)/60)+'h';
+    document.getElementById('p-missions').textContent=d.missionsCompleted||0;
+    document.getElementById('p-distance').textContent=((d.totalDistance||0)/1000).toFixed(1)+'km';
+
+    // Achievements
+    const unlocked=Array.isArray(d.achievements)?d.achievements:[];
+    const grid=document.getElementById('p-achievements');
+    grid.innerHTML='';
+    ACHIEVEMENTS.forEach(a=>{
+      const isUnlocked=unlocked.includes(a.id);
+      grid.innerHTML+=`<div class="achievement-item">
+        <div class="achievement-circle ${isUnlocked?'unlocked':'locked'}">${isUnlocked?a.emoji:'🔒'}</div>
+        <div class="achievement-name ${isUnlocked?'':'locked'}">${a.name}</div>
+      </div>`;
+    });
+
+    document.getElementById('profile-content').style.display='block';
+  });
+</script>
+</body>
+</html>
