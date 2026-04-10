@@ -26,6 +26,9 @@ Landing page oficial de FitLegend desarrollada en HTML, CSS y JavaScript puro, a
 ```
 fitlegend-legal/
 ├── index.html              → landing page principal
+├── ajustes.html
+├── perfil.html
+├── ranking.html
 ├── privacy-policy.html     → política de privacidad
 ├── delete-account.html     → página para eliminar cuenta
 ├── imgs/                   → capturas de pantalla de la app
