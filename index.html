@@ -1169,6 +1169,7 @@
     document.addEventListener('click', () => navDD.classList.remove('open'));
     document.getElementById('dd-profile').addEventListener('click', () => { navDD.classList.remove('open'); window.location.href = 'perfil.html'; });
     document.getElementById('dd-settings').addEventListener('click', () => { navDD.classList.remove('open'); window.location.href = 'ajustes.html'; });
+    document.getElementById('dd-ranking').addEventListener('click', () => { navDD.classList.remove('open'); window.location.href = 'ranking.html'; });
     document.getElementById('dd-logout').addEventListener('click', () => { navDD.classList.remove('open'); signOut(auth); });
     onAuthStateChanged(auth, async user => { if (user) { navCta.style.display = 'none'; navUser.classList.add('visible'); authOverlay.classList.remove('open'); try { const s = await getDoc(doc(db, 'users', user.uid)); if (s.exists()) { userData = s.data(); navEmoji.textContent = AVATARS[Math.min(userData.avatar || 0, 7)]; navName.textContent = userData.name || userData.username || user.email.split('@')[0]; navHandle.textContent = userData.username ? '@' + userData.username : ''; } else { navEmoji.textContent = '⚡'; navName.textContent = user.displayName || user.email.split('@')[0]; } } catch (e) { navName.textContent = user.displayName || user.email.split('@')[0]; } } else { navCta.style.display = ''; navUser.classList.remove('visible'); userData = null; } });
     loginForm.addEventListener('submit', async e => { e.preventDefault(); authErr.textContent = ''; const btn = loginForm.querySelector('.auth-btn-submit'); btn.disabled = true; btn.textContent = 'Entrando...'; try { await signInWithEmailAndPassword(auth, document.getElementById('login-email').value, document.getElementById('login-password').value); } catch (err) { authErr.textContent = trad(err.code); btn.disabled = false; btn.textContent = 'Iniciar sesión'; } });
@@ -1203,6 +1204,7 @@
       <div class="nav-dropdown" id="nav-dropdown">
         <button class="nav-dropdown-item" id="dd-profile">👤 Mi perfil</button>
         <button class="nav-dropdown-item" id="dd-settings">⚙️ Ajustes</button>
+        <button class="nav-dropdown-item" id="dd-ranking">🏆 Ranking</button>
         <div class="nav-dropdown-divider"></div>
         <button class="nav-dropdown-item danger" id="dd-logout">🚪 Cerrar sesión</button>
       </div>
