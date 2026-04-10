@@ -32,15 +32,38 @@ fitlegend-legal/
 ├── privacy-policy.html     → política de privacidad
 ├── delete-account.html     → página para eliminar cuenta
 ├── imgs/                   → capturas de pantalla de la app
-│   ├── inicio_negro.jpg
-│   ├── rutinas_blanco.jpg
+│   ├── android-chrome-192x192.png
+│   ├── android-chrome-512x512.png
+│   ├── apple-touch-icon.png
+│   ├── atletismo_blanco.jpg
+│   ├── atletismo_negro.jpg
 │   ├── coach_blanco.jpg
-│   ├── ranking_blanco.jpg
-│   ├── perfil_blanco.jpg
-│   ├── inicio2_blanco.jpg
+│   ├── coach_negro.jpg
 │   ├── entrenamientos_negro.jpg
+│   ├── favicon-16x16.png
+│   ├── favicon-32x32.png
+│   ├── favicon.ico
+│   ├── favicon.png
+│   ├── inicio2_blanco.jpg
+│   ├── inicio_blanco.jpg
+│   ├── inicio_negro.jpg
+│   ├── maps_blanco.jpg
+│   ├── maps_negro.jpg
+│   ├── pasos_negro.jpg
+│   ├── perfil_blanco.jpg
+│   ├── perfil_negro.jpg
+│   ├── racha_blanco.jpg
+│   ├── ranking2_blanco.jpg
+│   ├── ranking2_negro.jpg
 │   ├── ranking_negro.jpg
-│   └── racha_blanco.jpg
+│   ├── registrar-deporte_blanco.jpg
+│   ├── registrar-deporte_negro.jpg
+│   ├── rutinas_blanco.jpg
+│   ├── rutinas_negro.jpg
+│   ├── stats2_blanco.jpg
+│   ├── stats2_negro.jpg
+│   ├── stats_blanco.jpg
+│   └── stats_negro.jpg
 └── README.md
 ```
 
