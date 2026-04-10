@@ -29,6 +29,7 @@ fitlegend-legal/
 ├── ajustes.html
 ├── perfil.html
 ├── ranking.html
+├── chats.html
 ├── privacy-policy.html     → política de privacidad
 ├── delete-account.html     → página para eliminar cuenta
 ├── imgs/                   → capturas de pantalla de la app
