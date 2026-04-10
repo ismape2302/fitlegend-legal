@@ -642,9 +642,7 @@
                 padding: 1rem 1.5rem;
             }
 
-            .nav-links {
-                display: none;
-            }
+
 
             .achievements-grid {
                 grid-template-columns: repeat(4, 1fr);
@@ -665,6 +663,18 @@
                 padding: 6rem 1.2rem 3rem;
             }
         }
+
+        .nav-links-logged {
+            display: none !important;
+        }
+
+        .nav-links-logged.visible {
+            display: flex !important;
+        }
+
+        .nav-links-guest.hidden {
+            display: none !important;
+        }
     </style>
 </head>
 
@@ -672,10 +682,15 @@
 
     <nav>
         <a href="index.html" class="nav-logo">⚔️ Fit<span>Legend</span></a>
-        <ul class="nav-links">
+        <ul class="nav-links nav-links-guest" id="nav-links-guest">
             <li><a href="index.html#features">Features</a></li>
             <li><a href="index.html#screenshots">App</a></li>
             <li><a href="index.html#testimonios">Usuarios</a></li>
+        </ul>
+        <ul class="nav-links nav-links-logged" id="nav-links-logged">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="ranking.html">Ranking</a></li>
+            <li><a href="perfil.html">Perfil</a></li>
         </ul>
         <a href="#" class="nav-cta" id="btn-open-auth">Iniciar sesión</a>
         <div class="nav-user" id="nav-user">
@@ -877,10 +892,14 @@
                 document.getElementById('not-logged').style.display = 'flex';
                 document.querySelector('.nav-cta').style.display = '';
                 navUser.classList.remove('visible');
+                document.getElementById('nav-links-guest').classList.remove('hidden');
+                document.getElementById('nav-links-logged').classList.remove('visible');
                 return;
             }
             document.querySelector('.nav-cta').style.display = 'none';
             navUser.classList.add('visible');
+            document.getElementById('nav-links-guest').classList.add('hidden');
+            document.getElementById('nav-links-logged').classList.add('visible');
             document.getElementById('auth-modal-overlay').style.display = 'none';
 
             const snap = await getDoc(doc(db, 'users', user.uid));
