@@ -1535,6 +1535,144 @@
         text-align: center;
       }
     }
+
+    /* ── MOBILE NAV ── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: .3rem;
+      z-index: 101;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: all .3s;
+    }
+
+    .hamburger.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      background: rgba(5, 15, 15, 0.98);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      z-index: 99;
+      flex-direction: column;
+      padding: .5rem 0 1rem;
+      animation: fadeDown .2s ease both;
+    }
+
+    .mobile-menu.open {
+      display: flex;
+    }
+
+    .mobile-menu a,
+    .mobile-menu button {
+      display: block;
+      padding: .9rem 1.5rem;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      background: none;
+      border: none;
+      text-align: left;
+      font-family: 'Outfit', sans-serif;
+      cursor: pointer;
+      width: 100%;
+      transition: color .2s, background .2s;
+    }
+
+    .mobile-menu a:hover,
+    .mobile-menu button:hover {
+      color: var(--accent);
+      background: rgba(0, 245, 160, .04);
+    }
+
+    .mobile-menu .mobile-divider {
+      height: 1px;
+      background: var(--border);
+      margin: .4rem 1rem;
+    }
+
+    .mobile-menu .mobile-danger {
+      color: #ff6b6b;
+    }
+
+    .mobile-menu .mobile-cta {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .mobile-menu-guest {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .mobile-menu-logged {
+      display: none;
+      flex-direction: column;
+    }
+
+    .mobile-menu-guest.hidden {
+      display: none;
+    }
+
+    .mobile-menu-logged.visible {
+      display: flex;
+    }
+
+    @keyframes fadeDown {
+      from {
+        opacity: 0;
+        transform: translateY(-8px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none !important;
+      }
+
+      .nav-user-info {
+        display: none;
+      }
+
+      nav {
+        padding: .9rem 1.2rem;
+      }
+    }
   </style>
   <script type="module">
     import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
@@ -1553,6 +1691,24 @@
     document.getElementById('tab-register').addEventListener('click', () => { document.getElementById('tab-register').classList.add('active'); document.getElementById('tab-login').classList.remove('active'); regForm.classList.remove('hidden'); loginForm.classList.add('hidden'); authErr.textContent = ''; });
     document.getElementById('nav-user-btn').addEventListener('click', e => { e.stopPropagation(); navDD.classList.toggle('open'); });
     document.addEventListener('click', () => navDD.classList.remove('open'));
+
+    // ── HAMBURGER ──
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    function closeMobileMenu() {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    }
+    hamburger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+    document.addEventListener('click', (e) => {
+      if (!mobileMenu.contains(e.target) && e.target !== hamburger) closeMobileMenu();
+    });
+    document.getElementById('mobile-logout')?.addEventListener('click', () => { closeMobileMenu(); signOut(auth); });
+
     document.getElementById('dd-profile').addEventListener('click', () => { navDD.classList.remove('open'); window.location.href = 'perfil.html'; });
     document.getElementById('dd-settings').addEventListener('click', () => { navDD.classList.remove('open'); window.location.href = 'ajustes.html'; });
     document.getElementById('dd-chat').addEventListener('click', () => { navDD.classList.remove('open'); window.location.href = 'chats.html'; });
@@ -1695,7 +1851,31 @@
         <button class="nav-dropdown-item danger" id="dd-logout">🚪 Cerrar sesión</button>
       </div>
     </div>
+
+    <button class="hamburger" id="hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
   </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobile-menu">
+    <div class="mobile-menu-guest" id="mobile-menu-guest">
+      <a href="#features">Features</a>
+      <a href="#screenshots">App</a>
+      <a href="#testimonios">Usuarios</a>
+      <div class="mobile-divider"></div>
+      <button class="mobile-cta"
+        onclick="document.getElementById('auth-modal-overlay').classList.add('open');closeMobileMenu()">Iniciar
+        sesión</button>
+    </div>
+    <div class="mobile-menu-logged" id="mobile-menu-logged">
+      <a href="#" onclick="scrollToTop();closeMobileMenu()">Inicio</a>
+      <a href="chats.html" onclick="closeMobileMenu()">💬 Chat</a>
+      <a href="ranking.html" onclick="closeMobileMenu()">🏆 Ranking</a>
+      <a href="perfil.html" onclick="closeMobileMenu()">👤 Perfil</a>
+      <a href="ajustes.html" onclick="closeMobileMenu()">⚙️ Ajustes</a>
+      <div class="mobile-divider"></div>
+      <button class="mobile-danger" id="mobile-logout">🚪 Cerrar sesión</button>
+    </div>
+  </div>
 
   <!-- HERO -->
   <section class="hero">
